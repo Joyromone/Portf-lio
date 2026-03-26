@@ -103,4 +103,6 @@
       personasIdx = (personasIdx + dir + total) % total;
       track.style.transform = `translateX(-${personasIdx * 100}%)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === personasIdx));
-    }
+    }  </script>
+</body>
+</html>
