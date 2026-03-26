@@ -15,27 +15,58 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">Joyce Romone</a>
-      <ul class="nav__links">
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#cta">Contato</a></li>
-      </ul>
-      <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="nav__cta">Falar comigo</a>
+
+      <!-- Esquerda: boas vindas -->
+      <span class="nav__greeting">Boas vindas ao meu portfólio</span>
+
+      <!-- Direita: links + ícones + idioma -->
+      <div class="nav__right">
+        <ul class="nav__links">
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#about">Sobre mim</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <div class="nav__icons">
+          <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="nav__icon-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="nav__icon-link" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+        <!-- Seletor de idioma (placeholder para implementação futura) -->
+        <div class="nav__lang" id="langToggle">
+          <span class="nav__lang-current">
+            <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>
+            <span>PT</span>
+          </span>
+          <div class="nav__lang-dropdown" id="langDropdown">
+            <button class="nav__lang-option nav__lang-option--active" data-lang="pt" title="Português">
+              <svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#009c3b"/><polygon points="12,1.5 22,8 12,14.5 2,8" fill="#fedf00"/><circle cx="12" cy="8" r="3.8" fill="#002776"/></svg>
+              <span>PT</span>
+            </button>
+            <button class="nav__lang-option" data-lang="en" title="English">
+              <svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><line x1="0" y1="0" x2="24" y2="16" stroke="white" stroke-width="2.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="white" stroke-width="2.5"/><line x1="0" y1="0" x2="24" y2="16" stroke="#C8102E" stroke-width="1.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="#C8102E" stroke-width="1.5"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg>
+              <span>EN</span>
+            </button>
+            <button class="nav__lang-option" data-lang="es" title="Español">
+              <svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg>
+              <span>ES</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__avatar">👩‍💻</div>
     <div class="hero__content">
-      <span class="label">Product Designer</span>
-      <h1 class="heading">Joyce Romone.</h1>
-      <p class="hero__sub">Transformo problemas complexos em produtos digitais simples, acessíveis e que geram resultado real. Do discovery ao delivery.</p>
-      <div class="hero__links">
-        <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="hero__link" aria-label="LinkedIn">in</a>
-        <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="hero__link" aria-label="WhatsApp">💬</a>
-      </div>
+      <span class="label">Olá, eu sou</span>
+      <h1 class="heading hero__name">Joyce<br>Romone</h1>
+      <p class="hero__role"><span id="heroRole">Product Designer</span></p>
+      <p class="hero__sub">Trabalho na interseção entre design, tecnologia e negócios.<br>Valores que me movem: empatia, inclusão, colaboração e inovação.</p>
     </div>
   </section>
 
@@ -43,65 +74,28 @@
   <div class="marquee-wrap">
     <div class="marquee">
       <div class="marquee__group">
-        <div class="marquee__slide"><div class="marquee__placeholder">🤝</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">🎤</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">😊</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">👩‍💻</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">📐</div></div>
+        <div class="marquee__slide"><img src="assets/foto-1.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-2.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-3.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-4.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-5.jpg" alt="Joyce Romone" /></div>
       </div>
       <div class="marquee__group" aria-hidden="true">
-        <div class="marquee__slide"><div class="marquee__placeholder">🤝</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">🎤</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">😊</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">👩‍💻</div></div>
-        <div class="marquee__slide"><div class="marquee__placeholder">📐</div></div>
+        <div class="marquee__slide"><img src="assets/foto-1.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-2.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-3.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-4.jpg" alt="Joyce Romone" /></div>
+        <div class="marquee__slide"><img src="assets/foto-5.jpg" alt="Joyce Romone" /></div>
       </div>
     </div>
   </div>
 
   <!-- VALUE -->
-  <section class="section section--alt" id="value">
-    <div class="container">
-      <div class="value__grid">
-        <div class="reveal">
-          <span class="label">O que eu faço</span>
-          <h2 class="heading">Design que move<br />métricas e pessoas.</h2>
-          <p style="margin-top:20px; font-size:15px; font-weight:300; color:var(--gray-3); line-height:1.75; max-width:380px;">
-            Transformo problemas complexos em produtos digitais simples, acessíveis e que geram resultado real. Conectando pesquisa, estratégia e interface.
-          </p>
-        </div>
-        <div class="value__right reveal" style="transition-delay:.1s">
-          <div class="value__card">
-            <div class="value__card-icon">🔍</div>
-            <div class="value__card-title">Diagnóstico de produto</div>
-            <div class="value__card-text">Identifico gargalos de UX que impactam conversão, retenção e adoção com pesquisa e dados.</div>
-          </div>
-          <div class="value__card">
-            <div class="value__card-icon">📱</div>
-            <div class="value__card-title">Apps e plataformas digitais</div>
-            <div class="value__card-text">Experiência em SaaS, edtech e plataformas B2C com públicos variados e fluxos complexos.</div>
-          </div>
-          <div class="value__card">
-            <div class="value__card-icon">🤝</div>
-            <div class="value__card-title">Design colaborativo</div>
-            <div class="value__card-text">Trabalho próximo de produto, engenharia e negócios para facilitar alinhamento e decisões mais rápidas.</div>
-          </div>
-          <div class="value__card">
-            <div class="value__card-icon">📈</div>
-            <div class="value__card-title">Design orientado a impacto</div>
-            <div class="value__card-text">Entrego além da tela. Aumento de engajamento, conclusão e satisfação são meus KPIs reais.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
+  <section class="section section--alt" id="projects">
     <div class="container">
       <div class="reveal" style="margin-bottom:48px">
         <span class="label">Projetos</span>
-        <h2 class="heading">Cases que geram<br /><em>resultado.</em></h2>
+        <h2 class="heading">Alguns projetos que tenho<br>orgulho em ter trabalhado</h2>
       </div>
 
       <div class="projects__grid">
@@ -131,33 +125,11 @@
           </div>
         </div>
 
-        <!-- Card 2: Empreendedoras -->
+        <!-- Card 2: Influenciadores -->
         <div class="pcard reveal" onclick="openModal(1)" style="transition-delay:.1s">
           <div class="pcard__thumb">
             <div class="pcard__thumb-bg"></div>
-            <span class="pcard__thumb-label">Beleza</span>
-            <span class="pcard__year">2021</span>
-            <span class="pcard__arrow">↗</span>
-          </div>
-          <div class="pcard__body">
-            <div class="pcard__company">Escola Conquer · Grupo Boticário</div>
-            <div class="pcard__tags">
-              <span class="pcard__tag">Gamificação</span>
-              <span class="pcard__tag">Edtech</span>
-            </div>
-            <h3 class="pcard__title">Aumentando a taxa de formações com gamificação</h3>
-            <p class="pcard__summary">Profissionais da beleza que desejam se qualificar no mercado ou empreender no setor precisavam de motivação para concluir suas formações.</p>
-            <div class="pcard__footer">
-              <span class="pcard__cta">Ver case <span class="pcard__cta-arrow">→</span></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Influenciadores -->
-        <div class="pcard reveal" onclick="openModal(2)" style="transition-delay:.15s">
-          <div class="pcard__thumb">
-            <div class="pcard__thumb-bg"></div>
-            <span class="pcard__thumb-label" style="font-size:clamp(18px,3vw,36px); font-weight:700; letter-spacing:-.03em; text-transform:lowercase; color:rgba(0,0,0,.18); font-family:'DM Sans',sans-serif; text-align:center; line-height:1.15;">influenciadores<br>da beleza_</span>
+            <span class="pcard__thumb-label">Influenciadores<br>da Beleza</span>
             <span class="pcard__year">2022</span>
             <span class="pcard__arrow">↗</span>
           </div>
@@ -169,6 +141,28 @@
             </div>
             <h3 class="pcard__title">Como capacitamos revendedores do Grupo Boticário para dominar as redes sociais</h3>
             <p class="pcard__summary">Programa de capacitação exclusivo para ensinar revendedores a usar redes sociais e potencializar vendas.</p>
+            <div class="pcard__footer">
+              <span class="pcard__cta">Ver case <span class="pcard__cta-arrow">→</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Empreendedoras -->
+        <div class="pcard reveal" onclick="openModal(2)" style="transition-delay:.15s">
+          <div class="pcard__thumb">
+            <div class="pcard__thumb-bg"></div>
+            <span class="pcard__thumb-label">Empreendedoras<br>da Beleza</span>
+            <span class="pcard__year">2021</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <div class="pcard__body">
+            <div class="pcard__company">Escola Conquer · Grupo Boticário</div>
+            <div class="pcard__tags">
+              <span class="pcard__tag">Gamificação</span>
+              <span class="pcard__tag">Edtech</span>
+            </div>
+            <h3 class="pcard__title">Aumentando a taxa de formações com gamificação</h3>
+            <p class="pcard__summary">Profissionais da beleza que desejam se qualificar no mercado ou empreender no setor precisavam de motivação para concluir suas formações.</p>
             <div class="pcard__footer">
               <span class="pcard__cta">Ver case <span class="pcard__cta-arrow">→</span></span>
             </div>
@@ -391,7 +385,9 @@
 
               <!-- Image placeholder -->
               <div class="media-placeholder media-placeholder--image" style="margin-bottom:20px;">
-               <img src="imagem/tom e voz-influ.avif" alt="tom e voz">
+                <div class="media-placeholder__icon">🖼️</div>
+                <span class="media-placeholder__label">Inserir imagem</span>
+                <span class="media-placeholder__sub">Painel de síntese das entrevistas / FigJam</span>
               </div>
 
               <!-- Grupo 1: Tipos de inscrição -->
@@ -465,14 +461,139 @@
               </div>
             </div>
 
-            <!-- Imagens Figma -->
-            <div style="margin-bottom:8px;">
-              <div style="font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-3); margin-bottom:10px; display:flex; align-items:center; gap:8px;"><span style="display:inline-block;width:20px;height:1.5px;background:var(--gray-2);"></span>Do problema à solução: o design que chegou em produção</div>
-              <div class="media-placeholder media-placeholder--image" style="aspect-ratio:16/8;">
-                <div class="media-placeholder__icon">🖼️</div>
-                <span class="media-placeholder__label">Inserir imagens</span>
-                <span class="media-placeholder__sub">Telas, protótipos e especificações do Figma</span>
+            <!-- Telas do Figma organizadas por etapa -->
+            <div style="margin-bottom:20px;">
+              <div style="font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gray-3); margin-bottom:16px; display:flex; align-items:center; gap:8px;"><span style="display:inline-block;width:20px;height:1.5px;background:var(--gray-2);"></span>Do problema à solução: o design que chegou em produção</div>
+
+              <!-- Etapa 0 -->
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">00 · Meus Eventos</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— tela principal de criação de eventos</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot"><div class="screen-slot__num">—</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">—</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">—</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">—</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">—</div></div>
+                </div>
               </div>
+
+              <!-- Etapa 1 -->
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">01 · Tipos de inscrição</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— criação e configuração</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">01</div>
+                  </div>
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">02</div>
+                  </div>
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">03</div>
+                  </div>
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">04</div>
+                  </div>
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">05</div>
+                  </div>
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">06</div>
+                  </div>
+                  <div class="screen-slot">
+                    <div class="screen-slot__num">07</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Etapa 2 -->
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">02 · Lotes e descontos</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— configuração e virada automática</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot"><div class="screen-slot__num">08</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">09</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">10</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">11</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">12</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">13</div></div>
+                </div>
+              </div>
+
+              <!-- Etapa 3 -->
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">03 · Formas de pagamento</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— desvinculadas do tipo de inscrição</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot"><div class="screen-slot__num">14</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">15</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">16</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">17</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">18</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">19</div></div>
+                </div>
+              </div>
+
+              <!-- Etapa 4 -->
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">04 · Setor</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— organização de eventos maiores</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot"><div class="screen-slot__num">20</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">21</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">22</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">23</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">24</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">25</div></div>
+                </div>
+              </div>
+
+              <!-- Etapa 5 -->
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">05 · Inscrições gratuitas e pagas</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— no mesmo evento</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot"><div class="screen-slot__num">26</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">27</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">28</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">29</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">30</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">31</div></div>
+                </div>
+              </div>
+
+              <!-- Etapa 6 -->
+              <div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <span style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink);">06 · Formulários e máscaras</span>
+                  <span style="font-size:10px; color:var(--gray-3);">— campos com validação</span>
+                </div>
+                <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;">
+                  <div class="screen-slot"><div class="screen-slot__num">32</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">33</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">34</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">35</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">36</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">37</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">38</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">39</div></div>
+                  <div class="screen-slot"><div class="screen-slot__num">40</div></div>
+                </div>
+              </div>
+
             </div>
 
             <!-- Video: produção -->
@@ -603,46 +724,8 @@
           </div>
         </div>
 
-        <!-- ── CASE 1: Empreendedoras da Beleza ── -->
+        <!-- ── CASE 1: Influenciadores da Beleza ── -->
         <div class="modal__case" data-index="1">
-          <div class="modal__case-hero">
-            <div class="modal__case-tags">
-              <span class="project__tag">Gamificação</span>
-              <span class="project__tag">Edtech</span>
-              <span class="project__tag project__tag--pink">Escola Conquer · Grupo Boticário · 2021</span>
-            </div>
-            <h2 class="modal__case-title">Aumentando a taxa de formações com gamificação</h2>
-            <p class="modal__case-summary">O Empreendedoras da Beleza é uma iniciativa criada para profissionais que desejam se qualificar no mercado da beleza ou empreender no setor.</p>
-          </div>
-          <div class="modal__case-meta">
-            <div class="modal__case-meta-item">
-              <div class="modal__case-meta-label">Empresa</div>
-              <div class="modal__case-meta-value">Escola Conquer · Grupo Boticário</div>
-            </div>
-            <div class="modal__case-meta-item">
-              <div class="modal__case-meta-label">Atuação</div>
-              <div class="modal__case-meta-value">Product Designer</div>
-            </div>
-            <div class="modal__case-meta-item">
-              <div class="modal__case-meta-label">Duração</div>
-              <div class="modal__case-meta-value">2021</div>
-            </div>
-          </div>
-          <div class="modal__case-sections">
-            <div class="modal__case-section">
-              <div class="modal__case-section-label">Contexto &amp; Problema</div>
-              <div class="modal__case-section-title">Baixa taxa de conclusão</div>
-              <div class="modal__case-section-text">A plataforma tinha bom conteúdo, mas as usuárias não concluíam os cursos. Sem sensação de progresso nem recompensa pelo esforço, o abandono era alto, especialmente nas etapas finais.</div>
-            </div>
-          </div>
-          <div class="modal__case-impact">
-            <span class="modal__case-impact-label">★ Impacto</span>
-            <p class="modal__case-impact-text">Aumento da taxa de conclusão dos cursos com a implementação de mecânicas de gamificação.</p>
-          </div>
-        </div>
-
-        <!-- ── CASE 2: Influenciadores da Beleza ── -->
-        <div class="modal__case" data-index="2">
           <div class="modal__case-hero">
             <div class="modal__case-tags">
               <span class="project__tag">Edtech</span>
@@ -671,7 +754,7 @@
                     <!-- MEU PAPEL -->
           <div class="case-block case-block--tinted">
             <span class="case-block__label">Meu papel</span>
-            <h3 class="case-block__section-title">Product Designer de ponta a ponta, do workshop ao pós-lançamento.</h3>
+            <h3 class="case-block__section-title">Product Designer de ponta a ponta.</h3>
             <p class="case-block__lead" style="margin-bottom:20px;">Fui responsável pela experiência da plataforma: arquitetura da informação, fluxos de navegação, gamificação, testes com usuárias e acompanhamento das métricas após o lançamento. Trabalhei em colaboração próxima com times de produto, conteúdo e tecnologia.</p>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
               <div class="role-item"><span class="role-item__num">01</span><span class="role-item__text">Workshop de co-criação com stakeholders</span></div>
@@ -724,6 +807,24 @@
             <h3 class="case-block__section-title">Conhecer quem ia usar o produto antes de projetar qualquer tela.</h3>
             <p class="case-block__lead" style="margin-bottom:20px;">O Grupo Boticário disponibilizou personas detalhadas criadas a partir de pesquisas e análises de dados reais. Esse material foi o ponto de partida para entender comportamentos, desafios e expectativas das revendedoras antes de qualquer decisão de design.</p>
 
+            <!-- Carrossel de personas -->
+            <div class="personas-carousel" style="margin-bottom:16px;">
+              <div class="personas-carousel__track" id="personasTrack">
+                <div class="personas-carousel__item"><img src="assets/persona-1.jpg" alt="Persona 1" /></div>
+                <div class="personas-carousel__item"><img src="assets/persona-2.jpg" alt="Persona 2" /></div>
+                <div class="personas-carousel__item"><img src="assets/persona-3.jpg" alt="Persona 3" /></div>
+              </div>
+              <div class="personas-carousel__controls">
+                <button class="personas-carousel__btn" onclick="slidePersonas(-1)">←</button>
+                <div class="personas-carousel__dots" id="personasDots">
+                  <span class="personas-carousel__dot active"></span>
+                  <span class="personas-carousel__dot"></span>
+                  <span class="personas-carousel__dot"></span>
+                </div>
+                <button class="personas-carousel__btn" onclick="slidePersonas(1)">→</button>
+              </div>
+            </div>
+
             <div style="background:var(--white); border-radius:14px; padding:22px 24px; margin-bottom:10px;">
               <div style="font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--pink); margin-bottom:14px;">Tom e voz da plataforma</div>
               <p style="font-size:13px; font-weight:400; color:var(--black); margin-bottom:12px; line-height:1.65;">A comunicação foi pensada como um impulso diário de motivação: um parceiro que entende os desafios das revendedoras e as encoraja a ir além.</p>
@@ -762,6 +863,10 @@
                     <span class="tool-pill">Dot voting</span>
                     <span class="tool-pill">Co-criação</span>
                   </div>
+                  <div class="media-placeholder media-placeholder--image" style="margin-top:12px; aspect-ratio:16/9;">
+                    <div class="media-placeholder__icon">🖼️</div>
+                    <span class="media-placeholder__label">Inserir imagem</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline__item">
@@ -770,6 +875,10 @@
                   <div class="timeline__step">Análise de concorrentes</div>
                   <div class="timeline__title">Quatro padrões que se repetiam nas plataformas mais engajantes</div>
                   <p class="timeline__text">Mapeei o que as referências do mercado tinham em comum: prova social e comunidade ativa, visibilidade clara do progresso, conexão entre alunos e navegação com poucos cliques. Esses padrões guiaram as decisões de arquitetura e interface.</p>
+                  <div class="media-placeholder media-placeholder--image" style="margin-top:12px; aspect-ratio:16/9;">
+                    <div class="media-placeholder__icon">🖼️</div>
+                    <span class="media-placeholder__label">Inserir imagem</span>
+                  </div>
                 </div>
               </div>
               <div class="timeline__item">
@@ -778,6 +887,11 @@
                   <div class="timeline__step">Lápis e papel</div>
                   <div class="timeline__title">Rabiscoframes para validar antes de prototipar</div>
                   <p class="timeline__text">Através dos rabiscoframes identificamos rapidamente se as funcionalidades estavam alinhadas aos objetivos do produto. Foram os primeiros filtros antes de qualquer pixel no Figma.</p>
+                  <div class="media-placeholder media-placeholder--image" style="margin-top:14px;">
+                    <div class="media-placeholder__icon">🖼️</div>
+                    <span class="media-placeholder__label">Inserir imagem</span>
+                    <span class="media-placeholder__sub">Rabiscoframes da plataforma</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -788,6 +902,12 @@
             <span class="case-block__label">Solução</span>
             <h3 class="case-block__section-title">Uma plataforma que ensinava fazendo. E celebrava cada conquista.</h3>
             <p class="case-block__lead" style="margin-bottom:20px;">A estrutura foi pensada para reduzir a barreira de entrada e aumentar a sensação de conquista a cada etapa. A gamificação não era enfeite: era o mecanismo principal de retenção.</p>
+
+            <div class="media-placeholder media-placeholder--image" style="margin-bottom:16px;">
+              <div class="media-placeholder__icon">🖼️</div>
+              <span class="media-placeholder__label">Inserir imagem</span>
+              <span class="media-placeholder__sub">Telas da solução / interface da plataforma</span>
+            </div>
 
             <div style="background:var(--white); border-radius:14px; padding:22px 24px; margin-bottom:10px;">
               <div style="font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--pink); margin-bottom:16px;">Decisões de design</div>
@@ -870,11 +990,19 @@
                 <div style="background:var(--pink-bg); border-radius:10px; padding:14px 16px; flex:1; border:1px solid var(--pink-mid);">
                   <p style="font-size:12px; font-weight:600; color:var(--black); margin-bottom:4px;">Problema: quiz em página única</p>
                   <p style="font-size:11px; font-weight:300; color:var(--gray-3); line-height:1.6;">Todas as perguntas de nivelamento na mesma tela. As usuárias não entendiam o scroll e travavam nessa etapa, atrasando o acesso às trilhas.</p>
+                  <div style="margin-top:10px; background:var(--gray-1); border-radius:8px; aspect-ratio:3/4; max-height:280px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; border:1.5px dashed var(--gray-2);">
+                    <span style="font-size:16px;">🖼️</span>
+                    <span style="font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-3);">Inserir imagem</span>
+                  </div>
                 </div>
                 <div style="display:flex; align-items:center; font-size:18px; padding:0 6px; color:var(--gray-3);">→</div>
                 <div style="background:var(--white); border-radius:10px; padding:14px 16px; flex:1; border:1px solid var(--gray-1);">
                   <p style="font-size:12px; font-weight:600; color:var(--black); margin-bottom:4px;">Solução: uma pergunta por página</p>
                   <p style="font-size:11px; font-weight:300; color:var(--gray-3); line-height:1.6;">Reestruturei o quiz separando cada pergunta com contador visual de progresso. Fluxo mais fluido, sensação de avanço e menos abandono.</p>
+                  <div style="margin-top:10px; background:var(--gray-1); border-radius:8px; aspect-ratio:3/4; max-height:280px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; border:1.5px dashed var(--gray-2);">
+                    <span style="font-size:16px;">🖼️</span>
+                    <span style="font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-3);">Inserir imagem</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -885,7 +1013,6 @@
               <div class="tool-pills" style="margin-top:10px;">
                 <span class="tool-pill">Maze</span>
                 <span class="tool-pill">Google Meet</span>
-                <span class="tool-pill">Protótipo médio fidelidade</span>
                 <span class="tool-pill">Teste moderado</span>
               </div>
             </div>
@@ -1007,136 +1134,321 @@
 
         </div>
 
+        <!-- ── CASE 2: Empreendedoras da Beleza ── -->
+        <div class="modal__case" data-index="2">
+          <div class="modal__case-hero">
+            <div class="modal__case-tags">
+              <span class="project__tag">Edtech</span>
+              <span class="project__tag">Gamificação</span>
+              <span class="project__tag project__tag--pink">Escola Conquer · Grupo Boticário · 2021</span>
+            </div>
+            <h2 class="modal__case-title">Aumentando a taxa de formações com gamificação</h2>
+            <p class="modal__case-summary">O Empreendedoras da Beleza é uma plataforma de capacitação para profissionais que desejam se qualificar no mercado da beleza ou empreender no setor. Após o primeiro ciclo, os dados mostraram engajamento abaixo do esperado. Meu trabalho começou exatamente aí: entender o porquê antes de propor qualquer solução.</p>
+          </div>
+
+          <div class="modal__case-meta">
+            <div class="modal__case-meta-item">
+              <div class="modal__case-meta-label">Realizado em</div>
+              <div class="modal__case-meta-value">Escola Conquer</div>
+            </div>
+            <div class="modal__case-meta-item">
+              <div class="modal__case-meta-label">Para</div>
+              <div class="modal__case-meta-value">Grupo Boticário</div>
+            </div>
+            <div class="modal__case-meta-item">
+              <div class="modal__case-meta-label">Duração</div>
+              <div class="modal__case-meta-value">2021</div>
+            </div>
+          </div>
+
+          <!-- MEU PAPEL -->
+          <div class="case-block case-block--tinted">
+            <span class="case-block__label">Meu papel</span>
+            <h3 class="case-block__section-title">De ponta a ponta: da pesquisa à solução implementada.</h3>
+            <p class="case-block__lead" style="margin-bottom:20px;">Conduzi todo o processo de discovery, documentação e design. Trabalhei próxima do time de produto e das partes interessadas para garantir que as decisões partissem de dados reais, não de suposições.</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+              <div class="role-item"><span class="role-item__num">01</span><span class="role-item__text">Pesquisa qualitativa com 18 usuárias</span></div>
+              <div class="role-item"><span class="role-item__num">02</span><span class="role-item__text">Levantamento e validação de hipóteses</span></div>
+              <div class="role-item"><span class="role-item__num">03</span><span class="role-item__text">Apresentação dos insights ao time</span></div>
+              <div class="role-item"><span class="role-item__num">04</span><span class="role-item__text">Design do fluxo de gamificação</span></div>
+              <div class="role-item"><span class="role-item__num">05</span><span class="role-item__text">Interface de alta fidelidade</span></div>
+              <div class="role-item"><span class="role-item__num">06</span><span class="role-item__text">Monitoramento pós-implementação</span></div>
+            </div>
+          </div>
+
+          <!-- CONTEXTO -->
+          <div class="case-block">
+            <span class="case-block__label">Contexto</span>
+            <h3 class="case-block__section-title">O produto existia. O engajamento, não.</h3>
+            <p class="case-block__lead" style="margin-bottom:20px;">Após o lançamento do primeiro ciclo em novembro de 2021, os dados revelaram um padrão preocupante. A plataforma tinha conteúdo de qualidade, mas não estava convertendo inscrições em formações concluídas.</p>
+            <div class="stat-row">
+              <div class="stat-card">
+                <div class="stat-card__num">9k</div>
+                <div class="stat-card__label">pessoas inscritas</div>
+                <div class="stat-card__sub">ponto de partida do primeiro ciclo</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card__num">2.423</div>
+                <div class="stat-card__label">concluíram o onboarding</div>
+                <div class="stat-card__sub">apenas 26% do total inscrito avançou</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-card__num">1.393</div>
+                <div class="stat-card__label">iniciaram um curso</div>
+                <div class="stat-card__sub">mas não chegaram à certificação</div>
+              </div>
+            </div>
+            <div style="margin-top:16px; padding:16px 20px; background:var(--off); border-radius:12px;">
+              <p class="case-block__lead">Três problemas centrais ficaram evidentes: <strong>baixa taxa de acesso à plataforma</strong>, <strong>baixo início de cursos</strong> e <strong>baixíssima taxa de certificação</strong>. A questão era entender a raiz de cada um antes de agir.</p>
+            </div>
+          </div>
+
+          <!-- PESQUISA -->
+          <div class="case-block case-block--tinted">
+            <span class="case-block__label">Pesquisa</span>
+            <h3 class="case-block__section-title">18 entrevistas. 3 perfis. Uma pergunta central: por que as pessoas saíam?</h3>
+            <p class="case-block__lead" style="margin-bottom:24px;">Estruturei uma pesquisa qualitativa com participantes divididos em três categorias para entender comportamentos distintos e evitar vieses de confirmação.</p>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:20px;">
+              <div style="background:var(--white); border-radius:12px; padding:18px; border-top:2px solid var(--gray-2);">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-3); margin-bottom:8px;">Perfil 1</div>
+                <div style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:4px;">Não acessou</div>
+                <div style="font-size:12px; font-weight:300; color:var(--gray-3);">6 participantes que se inscreveram mas nunca entraram na plataforma</div>
+              </div>
+              <div style="background:var(--white); border-radius:12px; padding:18px; border-top:2px solid var(--pink);">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:8px;">Perfil 2</div>
+                <div style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:4px;">Concluiu o curso</div>
+                <div style="font-size:12px; font-weight:300; color:var(--gray-3);">6 participantes que chegaram à certificação</div>
+              </div>
+              <div style="background:var(--white); border-radius:12px; padding:18px; border-top:2px solid var(--gray-2);">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gray-3); margin-bottom:8px;">Perfil 3</div>
+                <div style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:4px;">Evadiu</div>
+                <div style="font-size:12px; font-weight:300; color:var(--gray-3);">6 participantes que iniciaram mas desistiram no caminho</div>
+              </div>
+            </div>
+
+            <div class="timeline">
+              <div class="timeline__item">
+                <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+                <div class="timeline__content">
+                  <div class="timeline__step">Hipóteses levantadas</div>
+                  <div class="timeline__title">Antes de entrevistar, estruturei o que achávamos que sabia</div>
+                  <p class="timeline__text">Cinco hipóteses guiaram o roteiro: dificuldades de acesso (login), tempo de espera para liberação do curso (1 semana), falhas de comunicação nos canais, falta de afinidade com o conteúdo, e desistência por sobrecarga de rotina. Cada entrevista foi desenhada para confirmar ou refutar cada uma delas.</p>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+                <div class="timeline__content">
+                  <div class="timeline__step">Recrutamento e condução</div>
+                  <div class="timeline__title">Base fornecida pelo time de CX, entrevistas remotas via Meet</div>
+                  <p class="timeline__text">O roteiro foi co-construído com as partes interessadas e alinhado às hipóteses. Cada sessão durou entre 50 minutos e 1 hora. Conduzi todas as entrevistas de forma remota, priorizando um ambiente de conversa, não de teste.</p>
+                  <div class="tool-pills">
+                    <span class="tool-pill">Pesquisa qualitativa</span>
+                    <span class="tool-pill">Google Meet</span>
+                    <span class="tool-pill">Roteiro semi-estruturado</span>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+                <div class="timeline__content">
+                  <div class="timeline__step">Síntese</div>
+                  <div class="timeline__title">Os insights foram direto para as partes interessadas, não para uma gaveta</div>
+                  <p class="timeline__text">Documentei e apresentei os resultados ao time com foco em ação: cada insight acompanhado de uma recomendação. O objetivo era transformar o que as usuárias disseram em decisões de produto concretas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INSIGHTS -->
+          <div class="case-block">
+            <span class="case-block__label">Principais insights</span>
+            <h3 class="case-block__section-title">O problema não era o conteúdo. Era a jornada até ele.</h3>
+            <p class="case-block__lead" style="margin-bottom:20px;">As entrevistas revelaram padrões consistentes. A principal causa de evasão foi a rotina e a dificuldade de gerenciar o tempo, não falta de interesse. As usuárias queriam concluir, mas o produto não estava facilitando isso.</p>
+
+            <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+              <div style="padding:14px 18px; background:var(--off); border-radius:10px; display:flex; gap:12px;">
+                <span style="color:var(--pink); font-weight:700; flex-shrink:0; font-size:13px;">01</span>
+                <div><p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Comunicação multicanal funcionou bem</p><p style="font-size:12px; font-weight:300; color:var(--gray-3);">E-mail, SMS e WhatsApp foram eficazes para avisar sobre a liberação do curso. As redes sociais ajudavam a manter o produto no radar das usuárias.</p></div>
+              </div>
+              <div style="padding:14px 18px; background:var(--off); border-radius:10px; display:flex; gap:12px;">
+                <span style="color:var(--pink); font-weight:700; flex-shrink:0; font-size:13px;">02</span>
+                <div><p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">O tempo de espera de 1 semana foi um gargalo real</p><p style="font-size:12px; font-weight:300; color:var(--gray-3);">O intervalo entre a inscrição e a liberação do conteúdo desmotivava quem chegava com intenção de começar imediatamente.</p></div>
+              </div>
+              <div style="padding:14px 18px; background:var(--off); border-radius:10px; display:flex; gap:12px;">
+                <span style="color:var(--pink); font-weight:700; flex-shrink:0; font-size:13px;">03</span>
+                <div><p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Rotina foi o principal motivo de evasão</p><p style="font-size:12px; font-weight:300; color:var(--gray-3);">As usuárias que desistiram não perderam o interesse no curso. A dificuldade era conciliar os estudos com outras responsabilidades da vida.</p></div>
+              </div>
+              <div style="padding:14px 18px; background:var(--off); border-radius:10px; display:flex; gap:12px;">
+                <span style="color:var(--pink); font-weight:700; flex-shrink:0; font-size:13px;">04</span>
+                <div><p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Comunidade como fator de motivação</p><p style="font-size:12px; font-weight:300; color:var(--gray-3);">Fóruns, grupos de WhatsApp e espaços de troca foram sugeridos espontaneamente como mecanismos que aumentariam a sensação de pertencimento e compromisso.</p></div>
+              </div>
+              <div style="padding:14px 18px; background:var(--off); border-radius:10px; display:flex; gap:12px;">
+                <span style="color:var(--pink); font-weight:700; flex-shrink:0; font-size:13px;">05</span>
+                <div><p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Alta demanda por acesso vitalício e novos conteúdos</p><p style="font-size:12px; font-weight:300; color:var(--gray-3);">Quem concluiu queria revisitar os materiais. Quem evadiu queria poder retomar sem perder o progresso. E quase todas pediram por mais cursos.</p></div>
+              </div>
+            </div>
+
+            <div class="validation-note">
+              <span class="validation-note__icon">!</span>
+              <div>
+                <strong style="font-size:13px; display:block; margin-bottom:3px;">Mudança emergencial durante o processo</strong>
+                <span style="font-size:12px; font-weight:300; color:var(--gray-3);">Em paralelo à pesquisa, o volume de tickets relacionados a login era alto. Decidimos remover a senha e permitir acesso apenas com e-mail. Também mudamos a liberação do conteúdo para o momento da inscrição, eliminando a espera de uma semana.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOLUÇÃO -->
+          <div class="case-block case-block--tinted">
+            <span class="case-block__label">Solução</span>
+            <h3 class="case-block__section-title">Gamificação e premiação como estratégia de motivação.</h3>
+            <p class="case-block__lead" style="margin-bottom:20px;">A solução foi projetada para atacar os três problemas centrais ao mesmo tempo: incentivar a conclusão dos cursos, melhorar a retenção e tornar a navegação mais fluida e envolvente.</p>
+
+            <div style="background:var(--white); border-radius:14px; padding:22px 24px; margin-bottom:10px;">
+              <div style="font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--pink); margin-bottom:16px;">Como o fluxo de gamificação funcionava</div>
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <div style="display:flex; gap:14px; align-items:flex-start;">
+                  <span style="font-family:'DM Serif Display',serif; font-size:20px; color:var(--pink); flex-shrink:0; line-height:1; margin-top:2px;">1</span>
+                  <div>
+                    <p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Desafio proposto</p>
+                    <p style="font-size:12px; font-weight:300; color:var(--gray-3);">A usuária completa um desafio prático, como publicar no Instagram com a hashtag #desafioeb, e registra o link e a data da publicação na plataforma.</p>
+                  </div>
+                </div>
+                <div style="display:flex; gap:14px; align-items:flex-start;">
+                  <span style="font-family:'DM Serif Display',serif; font-size:20px; color:var(--pink); flex-shrink:0; line-height:1; margin-top:2px;">2</span>
+                  <div>
+                    <p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Pontuação e progresso</p>
+                    <p style="font-size:12px; font-weight:300; color:var(--gray-3);">A plataforma contabiliza a pontuação em tempo real. A usuária acompanha seu avanço e visualiza quanto falta para completar cada módulo.</p>
+                  </div>
+                </div>
+                <div style="display:flex; gap:14px; align-items:flex-start;">
+                  <span style="font-family:'DM Serif Display',serif; font-size:20px; color:var(--pink); flex-shrink:0; line-height:1; margin-top:2px;">3</span>
+                  <div>
+                    <p style="font-size:13px; font-weight:500; color:var(--black); margin-bottom:3px;">Módulos integrados ao progresso</p>
+                    <p style="font-size:12px; font-weight:300; color:var(--gray-3);">A partir da tela de progresso, é possível retomar diretamente os módulos pendentes com um clique. O caminho até o conteúdo ficou curto e claro.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-placeholder media-placeholder--image" style="margin-top:10px;">
+              <div class="media-placeholder__icon">🖼️</div>
+              <span class="media-placeholder__label">Inserir imagem</span>
+              <span class="media-placeholder__sub">Interface de alta fidelidade: fluxo de gamificação</span>
+            </div>
+          </div>
+
+          <!-- IMPACTO -->
+          <div class="modal__case-impact">
+            <span class="modal__case-impact-label">★ Impacto</span>
+            <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,.6); line-height:1.7; margin-bottom:24px; max-width:580px;">O segundo ciclo validou que a abordagem funcionou. Os números do produto e do negócio mudaram de patamar.</p>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+              <div style="background:rgba(255,255,255,.06); border-radius:12px; padding:20px;">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:10px;">Escala</div>
+                <div style="font-family:'DM Serif Display',serif; font-size:36px; color:var(--pink); line-height:1; margin-bottom:6px;">+422k</div>
+                <div style="font-size:12px; font-weight:500; color:rgba(255,255,255,.8); margin-bottom:4px;">mulheres inscritas</div>
+                <div style="font-size:11px; font-weight:300; color:rgba(255,255,255,.4);">de 9 mil para 422 mil, crescimento consistente ao longo dos ciclos</div>
+              </div>
+              <div style="background:rgba(255,255,255,.06); border-radius:12px; padding:20px;">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:10px;">Formação</div>
+                <div style="font-family:'DM Serif Display',serif; font-size:36px; color:var(--pink); line-height:1; margin-bottom:6px;">+76k</div>
+                <div style="font-size:12px; font-weight:500; color:rgba(255,255,255,.8); margin-bottom:4px;">mulheres formadas</div>
+                <div style="font-size:11px; font-weight:300; color:rgba(255,255,255,.4);">capacitadas para atuar ou empreender no mercado da beleza</div>
+              </div>
+              <div style="background:rgba(255,255,255,.06); border-radius:12px; padding:20px;">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:10px;">Crescimento</div>
+                <div style="font-family:'DM Serif Display',serif; font-size:36px; color:var(--pink); line-height:1; margin-bottom:6px;">+500%</div>
+                <div style="font-size:12px; font-weight:500; color:rgba(255,255,255,.8); margin-bottom:4px;">no número de formadas</div>
+                <div style="font-size:11px; font-weight:300; color:rgba(255,255,255,.4);">impulsionado pela gamificação e simplificação da jornada</div>
+              </div>
+              <div style="background:rgba(255,255,255,.06); border-radius:12px; padding:20px;">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:10px;">Impacto econômico</div>
+                <div style="font-family:'DM Serif Display',serif; font-size:36px; color:var(--pink); line-height:1; margin-bottom:6px;">65%</div>
+                <div style="font-size:12px; font-weight:500; color:rgba(255,255,255,.8); margin-bottom:4px;">tiveram impacto positivo na renda</div>
+                <div style="font-size:11px; font-weight:300; color:rgba(255,255,255,.4);">aumento salarial, promoções ou criação de negócio próprio</div>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px;">
+              <div style="background:rgba(255,255,255,.04); border-radius:12px; padding:18px 20px; border:1px solid rgba(255,255,255,.08);">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:8px;">Engajamento</div>
+                <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,.6); line-height:1.6;">31% de aumento na adesão a cursos técnicos, resultado direto das campanhas direcionadas e da simplificação da jornada.</p>
+              </div>
+              <div style="background:rgba(255,255,255,.04); border-radius:12px; padding:18px 20px; border:1px solid rgba(255,255,255,.08);">
+                <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:8px;">Negócio</div>
+                <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,.6); line-height:1.6;">+8 anos de renovação contratual com o Grupo Boticário. Os resultados do segundo ciclo consolidaram a confiança e ampliaram o escopo.</p>
+              </div>
+            </div>
+
+            <div style="background:rgba(255,255,255,.04); border-radius:12px; padding:18px 20px; border:1px solid rgba(255,255,255,.08);">
+              <div style="font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pink); margin-bottom:12px;">Conheça o produto</div>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <a href="https://empreendedorasdabelezagb.com.br/" target="_blank" style="font-size:13px; font-weight:400; color:rgba(255,255,255,.7); text-decoration:underline; text-underline-offset:3px;">empreendedorasdabelezagb.com.br ↗</a>
+                <a href="https://app.empreendedorasdabelezagb.com.br/login" target="_blank" style="font-size:13px; font-weight:400; color:rgba(255,255,255,.7); text-decoration:underline; text-underline-offset:3px;">app.empreendedorasdabelezagb.com.br ↗</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div><!-- /modal__body -->
     </div><!-- /modal -->
   </div><!-- /modal-overlay -->
 
   <!-- ABOUT -->
-  <section class="section section--alt" id="about">
+  <!-- ═══════ SOBRE MIM ═══════ -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="about__grid">
-        <div class="reveal">
-          <span class="label">Sobre mim</span>
-          <h2 class="heading">Design com<br />propósito real.</h2>
-          <p class="about__text">Sou Product Designer com foco em descoberta de problemas, construção de soluções e entrega de resultados mensuráveis. Trabalho na interseção entre pesquisa, estratégia e interface.</p>
-          <p class="about__text">Tenho experiência em produtos B2B e B2C, com histórico em SaaS, edtech e plataformas de gestão. Gosto de ambientes que exigem raciocínio estruturado e colaboração próxima com produto e engenharia.</p>
-          <div class="about__pillars">
-            <div class="about__pillar">
-              <div class="about__pillar-num">01</div>
-              <div class="about__pillar-content">
-                <div class="about__pillar-title">Pesquisa orientada a decisão</div>
-                <div class="about__pillar-text">Não faço pesquisa por fazer. Cada insight precisa ter destino claro numa decisão de produto.</div>
-              </div>
-            </div>
-            <div class="about__pillar">
-              <div class="about__pillar-num">02</div>
-              <div class="about__pillar-content">
-                <div class="about__pillar-title">Design que conversa com engenharia</div>
-                <div class="about__pillar-text">Entrego especificações que o time de dev consegue implementar sem ruído de comunicação.</div>
-              </div>
-            </div>
-            <div class="about__pillar">
-              <div class="about__pillar-num">03</div>
-              <div class="about__pillar-content">
-                <div class="about__pillar-title">Impacto acima de estética</div>
-                <div class="about__pillar-text">Bonito é ótimo. Mas o que me move é saber que o produto resolveu um problema real.</div>
-              </div>
-            </div>
+      <div class="about-hero reveal">
+        <h2 class="about-hero__title">Quem sou além do design</h2>
+        <div class="about-hero__grid">
+          <div class="about-hero__photo">
+            <img src="assets/sobre-foto.jpg" alt="Joyce Romone" />
           </div>
-        </div>
-        <div class="about__right reveal" style="transition-delay:.1s">
-          <div class="about__skills-title">Ferramentas e habilidades</div>
-          <div class="about__skills">
-            <span class="about__skill">Figma</span>
-            <span class="about__skill">Figma Make</span>
-            <span class="about__skill">Protótipo navegável</span>
-            <span class="about__skill">Discovery contínuo</span>
-            <span class="about__skill">Design System</span>
-            <span class="about__skill">Pesquisa qualitativa</span>
-            <span class="about__skill">Testes de usabilidade</span>
-            <span class="about__skill">IA aplicada ao design</span>
-            <span class="about__skill">FigJam</span>
-            <span class="about__skill">ClickUp</span>
-            <span class="about__skill">Lovable</span>
-            <span class="about__skill">Mapeamento de fluxos</span>
-            <span class="about__skill">Roadmap</span>
-            <span class="about__skill">Co-criação</span>
-          </div>
-          <div class="about__quote">
-            "Design sem pesquisa é decoração. Pesquisa sem design é relatório. A mágica está no meio."
+          <div class="about-hero__text">
+            <h3 class="about-hero__subtitle">Minha história</h3>
+            <p>Nascida no interior de Alagoas, tenho 30 anos e moro em Maceió. Sou tutora de duas huskies que são a razão dos meus chinelos mordidos.</p>
+            <p>Graduanda em Marketing. Apaixonada em experiência, design e negócios com mais de 5 anos como Product Designer, me destaco pela colaboração, curiosidade e busca constante por aprendizado.</p>
+            <p>Acredito que a reflexão sobre desafios, seja no trabalho, nos relacionamentos ou nas questões pessoais, é essencial para o crescimento contínuo. Tenho um compromisso genuíno com meu desenvolvimento, sempre em busca de ser a melhor versão de mim mesma.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience">
+  <!-- ═══════ INTERESSES ═══════ -->
+  <section class="section section--alt" id="interests">
     <div class="container">
-      <div class="proof__grid">
-        <div class="reveal">
-          <span class="label">Onde já trabalhei</span>
-          <h2 class="heading">Experiência<br />acumulada.</h2>
-          <div class="proof__exp-list">
-            <div class="proof__exp-item">
-              <div class="proof__exp-dot"></div>
-              <div class="proof__exp-year">2024</div>
-              <div>
-                <div class="proof__exp-role">Product Designer</div>
-                <div class="proof__exp-company">E-Inscrição</div>
-              </div>
-            </div>
-            <div class="proof__exp-item">
-              <div class="proof__exp-dot"></div>
-              <div class="proof__exp-year">2021–22</div>
-              <div>
-                <div class="proof__exp-role">Product Designer</div>
-                <div class="proof__exp-company">Escola Conquer · Grupo Boticário</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="reveal" style="transition-delay:.1s">
-          <span class="label">Em números</span>
-          <h2 class="heading">O que<br />já entreguei.</h2>
-          <div class="proof__stats">
-            <div class="proof__stat">
-              <div class="proof__stat-num">3<em>+</em></div>
-              <div class="proof__stat-label">anos em produto digital</div>
-            </div>
-            <div class="proof__stat">
-              <div class="proof__stat-num"><em>∞</em></div>
-              <div class="proof__stat-label">entrevistas com clientes</div>
-            </div>
-            <div class="proof__stat">
-              <div class="proof__stat-num">100<em>%</em></div>
-              <div class="proof__stat-label">foco em impacto real</div>
-            </div>
-            <div class="proof__stat">
-              <div class="proof__stat-num"><em>0</em></div>
-              <div class="proof__stat-label">entregas sem validação</div>
-            </div>
-          </div>
-        </div>
+      <div class="reveal">
+        <h2 class="about-interests__title">Interesses</h2>
+        <p class="about-interests__text">Gosto de me envolver em comunidades, participar de eventos e explorar novas formas de colaboração. Também me interesso por comportamento humano e entender diferentes perspectivas. Além disso, a fotografia, as viagens e a cultura coreana são algumas das minhas paixões. Nos momentos livres, busco experiências que me inspirem, seja por meio de boas conversas, descobertas culturais ou novos desafios.</p>
+      </div>
+      <div class="about-gallery reveal" style="transition-delay:.1s">
+        <div class="about-gallery__item"><img src="assets/interesse-1.jpg" alt="" /></div>
+        <div class="about-gallery__item"><img src="assets/interesse-2.jpg" alt="" /></div>
+        <div class="about-gallery__item"><img src="assets/interesse-3.jpg" alt="" /></div>
+        <div class="about-gallery__item"><img src="assets/interesse-4.jpg" alt="" /></div>
+        <div class="about-gallery__item"><img src="assets/interesse-5.jpg" alt="" /></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ═══════ CTA ═══════ -->
   <section class="cta-section" id="cta">
     <div class="cta__box">
-      <span class="label cta__label">Vamos conversar?</span>
-      <h2 class="cta__title">Aberta a projetos, parcerias e trocas sobre produto e design.</h2>
-      <p class="cta__sub">Se você está construindo algo que precisa de uma designer que pensa antes de abrir o Figma, me chama.</p>
+      <h2 class="cta__title">Vamos conversar?</h2>
+      <p class="cta__sub">Projetos, colaborações e outras ideias, dentro ou fora do design!</p>
       <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="cta__btn">
-        Falar no WhatsApp ↗
+        Fale comigo ↗
       </a>
     </div>
   </section>
 
+
   <!-- FOOTER -->
   <footer class="footer">
-    <span class="footer__copy">© 2025 Joyce Romone</span>
+    <span class="footer__copy">© 2026 Joyce Romone · feito por uma humana 🤍</span>
     <div class="footer__links">
       <a href="https://www.linkedin.com/in/joyromone/" target="_blank">LinkedIn</a>
       <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank">WhatsApp</a>
