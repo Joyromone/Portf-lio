@@ -1,4 +1,4 @@
-    // ── Nav scroll ──
+// ── Nav scroll ──
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -103,6 +103,4 @@
       personasIdx = (personasIdx + dir + total) % total;
       track.style.transform = `translateX(-${personasIdx * 100}%)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === personasIdx));
-    }  </script>
-</body>
-</html>
+    }
