@@ -388,6 +388,7 @@
     .pcard:nth-child(1) .pcard__thumb-bg { background: linear-gradient(135deg, #e8d5f5 0%, #c9b8e8 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #e8d5f5 0%, #c9b8e8 100%); background-size: 20px 20px, 100% 100%; }
     .pcard:nth-child(2) .pcard__thumb-bg { background: linear-gradient(135deg, #cce8f4 0%, #a8d4ea 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #cce8f4 0%, #a8d4ea 100%); background-size: 20px 20px, 100% 100%; }
     .pcard:nth-child(3) .pcard__thumb-bg { background: linear-gradient(135deg, var(--pink-bg) 0%, #f7c5cf 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, var(--pink-bg) 0%, #f7c5cf 100%); background-size: 20px 20px, 100% 100%; }
+    .pcard:nth-child(4) .pcard__thumb-bg { background: linear-gradient(135deg, #d5f0e8 0%, #a8dcc8 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #d5f0e8 0%, #a8dcc8 100%); background-size: 20px 20px, 100% 100%; }
 
     .pcard__thumb-label {
       position: relative;

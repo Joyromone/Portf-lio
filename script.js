@@ -18,7 +18,7 @@
 
     // ── Modal ──
     let currentCase = 0;
-    const totalCases = 3;
+    const totalCases = 4;
 
     function openModal(index) {
       currentCase = index;
