@@ -136,7 +136,7 @@
 
 
     // ══════════════════════════════════════════════════════════════════
-    // i18n — Sistema completo de traduções PT / EN / ES
+    // i18n · Sistema completo de traduções PT / EN / ES
     // Para adicionar novo texto: 1) adicione data-i18n="chave" no HTML
     //                            2) adicione a string nas 3 línguas aqui
     // ══════════════════════════════════════════════════════════════════
@@ -226,13 +226,13 @@
         'about.history.title': 'My story',
         'about.p1': 'Born in the interior of Alagoas, I am 30 years old and live in Maceió. I take care of two huskies who are the reason my slippers are always chewed up.',
         'about.p2': 'Marketing student. Passionate about experience, design and business with over 5 years as a Product Designer, I stand out for my collaboration, curiosity and constant pursuit of learning.',
-        'about.p3': 'I believe that reflecting on challenges — at work, in relationships or in personal matters — is essential for continuous growth. I have a genuine commitment to my development, always striving to be the best version of myself.',
+        'about.p3': 'I believe that reflecting on challenges, at work, in relationships or in personal matters, is essential for continuous growth. I have a genuine commitment to my development, always striving to be the best version of myself.',
         // INTERESTS
         'interests.heading': 'Interests',
-        'interests.text': 'I enjoy getting involved in communities, attending events and exploring new ways to collaborate. I am also interested in human behavior and understanding different perspectives. Photography, travel and Korean culture are some of my passions. In my free time, I seek experiences that inspire me — through great conversations, cultural discoveries or new challenges.',
+        'interests.text': 'I enjoy getting involved in communities, attending events and exploring new ways to collaborate. I am also interested in human behavior and understanding different perspectives. Photography, travel and Korean culture are some of my passions. In my free time, I seek experiences that inspire me, through great conversations, cultural discoveries or new challenges.',
         // CTA
         'cta.heading': "Let's talk?",
-        'cta.sub': 'Projects, collaborations and other ideas — inside or outside design!',
+        'cta.sub': 'Projects, collaborations and other ideas · inside or outside design!',
         'cta.btn': 'Get in touch ↗',
         // FOOTER
         'footer.made': 'made by a human 🤍',
@@ -282,7 +282,7 @@
         'about.history.title': 'Mi historia',
         'about.p1': 'Nacida en el interior de Alagoas, tengo 30 años y vivo en Maceió. Cuido de dos huskies que son la razón de mis pantuflas mordidas.',
         'about.p2': 'Estudiante de Marketing. Apasionada por la experiencia, el diseño y los negocios con más de 5 años como Product Designer, me destaco por la colaboración, la curiosidad y la búsqueda constante de aprendizaje.',
-        'about.p3': 'Creo que la reflexión sobre los desafíos — en el trabajo, en las relaciones o en las cuestiones personales — es esencial para el crecimiento continuo. Tengo un compromiso genuino con mi desarrollo, siempre buscando ser la mejor versión de mí misma.',
+        'about.p3': 'Creo que la reflexión sobre los desafíos · en el trabajo, en las relaciones o en las cuestiones personales · es esencial para el crecimiento continuo. Tengo un compromiso genuino con mi desarrollo, siempre buscando ser la mejor versión de mí misma.',
         // INTERESTS
         'interests.heading': 'Intereses',
         'interests.text': 'Me gusta involucrarme en comunidades, participar en eventos y explorar nuevas formas de colaboración. También me interesa el comportamiento humano y entender diferentes perspectivas. La fotografía, los viajes y la cultura coreana son algunas de mis pasiones. En mis momentos libres, busco experiencias que me inspiren, ya sea a través de buenas conversaciones, descubrimientos culturales o nuevos desafíos.',
