@@ -388,7 +388,9 @@
     .pcard:nth-child(1) .pcard__thumb-bg { background: linear-gradient(135deg, #e8d5f5 0%, #c9b8e8 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #e8d5f5 0%, #c9b8e8 100%); background-size: 20px 20px, 100% 100%; }
     .pcard:nth-child(2) .pcard__thumb-bg { background: linear-gradient(135deg, #cce8f4 0%, #a8d4ea 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #cce8f4 0%, #a8d4ea 100%); background-size: 20px 20px, 100% 100%; }
     .pcard:nth-child(3) .pcard__thumb-bg { background: linear-gradient(135deg, var(--pink-bg) 0%, #f7c5cf 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, var(--pink-bg) 0%, #f7c5cf 100%); background-size: 20px 20px, 100% 100%; }
-    .pcard:nth-child(4) .pcard__thumb-bg { background: linear-gradient(135deg, #d5f0e8 0%, #a8dcc8 100%); background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #d5f0e8 0%, #a8dcc8 100%); background-size: 20px 20px, 100% 100%; }
+    .pcard:nth-child(2) .pcard__thumb-bg { background: linear-gradient(135deg, #d5f0e8 0%, #a8dcc8 100%) !important; background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #d5f0e8 0%, #a8dcc8 100%) !important; background-size: 20px 20px, 100% 100% !important; }
+    .pcard:nth-child(3) .pcard__thumb-bg { background: linear-gradient(135deg, #cce8f4 0%, #a8d4ea 100%) !important; background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, #cce8f4 0%, #a8d4ea 100%) !important; background-size: 20px 20px, 100% 100% !important; }
+    .pcard:nth-child(4) .pcard__thumb-bg { background: linear-gradient(135deg, var(--pink-bg) 0%, #f7c5cf 100%) !important; background-image: radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(135deg, var(--pink-bg) 0%, #f7c5cf 100%) !important; background-size: 20px 20px, 100% 100% !important; }
 
     .pcard__thumb-label {
       position: relative;
@@ -509,9 +511,8 @@
     /* ════ RESPONSIVE ════ */
     @media (max-width: 700px) {
       .projects__grid { grid-template-columns: 1fr; }
-      .pcard--featured { grid-column: span 1; flex-direction: column; }
-      .pcard--featured .pcard__thumb { width: 100%; min-height: 200px; border-radius: 20px 20px 0 0; order: 1; }
-      .pcard--featured .pcard__body { order: 2; padding: 24px 28px 28px; justify-content: flex-start; }
+      .pcard { flex-direction: column; }
+      .pcard .pcard__thumb { width: 100%; min-height: 200px; border-radius: 20px 20px 0 0; }
       .pcard__thumb { aspect-ratio: 16/9; }
     }
 
