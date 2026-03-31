@@ -16,7 +16,12 @@ const nav = document.getElementById('nav');
           e.stopPropagation();
           langToggle.querySelectorAll('.nav__lang-option').forEach(b => b.classList.remove('nav__lang-option--active'));
           btn.classList.add('nav__lang-option--active');
-          langToggle.querySelector('.nav__lang-current').textContent = btn.dataset.lang.toUpperCase();
+          const flagMap = {
+            pt: '<svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg><span>PT</span>',
+            en: '<svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><line x1="0" y1="0" x2="24" y2="16" stroke="white" stroke-width="2.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="white" stroke-width="2.5"/><line x1="0" y1="0" x2="24" y2="16" stroke="#C8102E" stroke-width="1.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="#C8102E" stroke-width="1.5"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg><span>EN</span>',
+            es: '<svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg><span>ES</span>'
+          };
+          langToggle.querySelector('.nav__lang-current').innerHTML = flagMap[btn.dataset.lang] || btn.dataset.lang.toUpperCase();
           langToggle.classList.remove('open');
         });
       });
@@ -105,6 +110,13 @@ const nav = document.getElementById('nav');
       const curr = document.querySelector('.nav__lang-current');
       if (curr && flagMap[lang]) curr.innerHTML = flagMap[lang];
       document.querySelectorAll('.nav__lang-option').forEach(btn => btn.classList.toggle('nav__lang-option--active', btn.dataset.lang === lang));
+      const flagMap2 = {
+        pt: '<svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg><span>PT</span>',
+        en: '<svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><line x1="0" y1="0" x2="24" y2="16" stroke="white" stroke-width="2.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="white" stroke-width="2.5"/><line x1="0" y1="0" x2="24" y2="16" stroke="#C8102E" stroke-width="1.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="#C8102E" stroke-width="1.5"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg><span>EN</span>',
+        es: '<svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg><span>ES</span>'
+      };
+      const currentEl = document.querySelector('.nav__lang-current');
+      if (currentEl && flagMap2[lang]) currentEl.innerHTML = flagMap2[lang];
       document.querySelectorAll('.mobile-menu__lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
       document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
       try { localStorage.setItem('joyce-lang', lang); } catch(e) {}

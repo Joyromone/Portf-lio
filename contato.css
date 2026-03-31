@@ -256,6 +256,12 @@
       transform: translateX(4px);
       box-shadow: 0 8px 24px rgba(217,96,122,.08);
     }
+    @media (hover: none) {
+      .channel:hover { border-color: var(--gray-1); transform: none; box-shadow: none; }
+      .channel:hover .channel__icon { background: var(--off); }
+      .channel:hover .channel__arrow { color: var(--gray-2); transform: none; }
+      .channel:active { border-color: var(--pink); }
+    }
     .channel__icon {
       width: 44px; height: 44px;
       border-radius: 12px;
