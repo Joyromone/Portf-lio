@@ -77,7 +77,7 @@
       });
     }
     // ── Rotating hero role ──
-    const roles = ['Product Designer', 'UX/UI Designer', 'Chapter Leader · Ladies That UX Maceió'];
+    const roles = ['Product Designer', 'UX/UI Designer', 'Chapter Leader Ladies That UX Maceió'];
     let roleIndex = 0;
     const roleEl = document.getElementById('heroRole');
     if (roleEl) {

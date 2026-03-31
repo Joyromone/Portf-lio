@@ -103,11 +103,14 @@
       font-weight: 600;
       letter-spacing: .1em;
       color: var(--gray-3);
-      padding: 4px 8px;
+      padding: 4px 10px;
       border: 1px solid var(--gray-2);
       border-radius: 100px;
       transition: color .2s, border-color .2s;
       user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .nav__lang:hover .nav__lang-current { color: var(--black); border-color: var(--gray-3); }
     .nav__lang-dropdown {
