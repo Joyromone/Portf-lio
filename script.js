@@ -1,4 +1,4 @@
-// ── Nav scroll ──
+    // ── Nav scroll ──
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -364,4 +364,42 @@
           document.getElementById('langToggle').classList.remove('open');
         });
       });
+    });
+
+
+
+    // ── Gallery Carousel ──
+    let galleryIdx = 0;
+    const galleryTotal = 6;
+
+    function galleryGoTo(idx) {
+      galleryIdx = idx;
+      const track = document.getElementById('galleryTrack');
+      if (track) track.style.transform = `translateX(-${galleryIdx * 100}%)`;
+      document.querySelectorAll('#galleryDots .gallery-carousel__dot').forEach((d, i) => {
+        d.classList.toggle('active', i === galleryIdx);
+      });
+      const prev = document.getElementById('galleryPrev');
+      const next = document.getElementById('galleryNext');
+      if (prev) prev.disabled = galleryIdx === 0;
+      if (next) next.disabled = galleryIdx === galleryTotal - 1;
+    }
+
+    function galleryNav(dir) {
+      const next = galleryIdx + dir;
+      if (next < 0 || next >= galleryTotal) return;
+      galleryGoTo(next);
+    }
+
+    // Touch swipe support
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('galleryTrack');
+      if (!track) return;
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) galleryNav(diff > 0 ? 1 : -1);
+      });
+      galleryGoTo(0);
     });

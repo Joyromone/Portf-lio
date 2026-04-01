@@ -7,24 +7,226 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="contato.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ═══════ CONTATO PAGE ═══════ */
+    .contact-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: var(--white);
+    }
+    .contact-hero .container {
+      width: 100%;
+    }
+    .contact-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-3);
+      margin-bottom: 56px;
+      transition: color .2s;
+    }
+    .contact-hero__back:hover { color: var(--black); }
+    .contact-hero__back svg { flex-shrink: 0; }
+
+    .contact-hero__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 20px;
+    }
+    .contact-hero__heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--black);
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    .contact-hero__heading em {
+      font-style: italic;
+      color: var(--pink);
+    }
+    .contact-hero__sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray-4);
+      line-height: 1.65;
+      max-width: 480px;
+      margin-bottom: 6px;
+    }
+
+    /* Grid principal */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 64px;
+      align-items: start;
+    }
+
+    /* Cards de contato */
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      border: 1px solid var(--gray-1);
+      border-radius: 18px;
+      text-decoration: none;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color .25s, box-shadow .25s, transform .25s var(--r);
+    }
+    .contact-card:hover {
+      border-color: var(--gray-2);
+      box-shadow: 0 8px 32px rgba(0,0,0,.07);
+      transform: translateY(-2px);
+    }
+    .contact-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--off);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+      transition: background .25s;
+    }
+    .contact-card:hover .contact-card__icon {
+      background: var(--pink-bg);
+    }
+    .contact-card__text { flex: 1; min-width: 0; }
+    .contact-card__label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 3px;
+    }
+    .contact-card__desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--gray-3);
+      line-height: 1.5;
+    }
+    .contact-card__arrow {
+      color: var(--gray-3);
+      flex-shrink: 0;
+      transition: color .2s, transform .2s;
+    }
+    .contact-card:hover .contact-card__arrow {
+      color: var(--pink);
+      transform: translateX(3px);
+    }
+
+    /* Formulário */
+    .contact-form {
+      background: var(--off);
+      border-radius: 24px;
+      padding: 40px;
+    }
+    .contact-form__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      letter-spacing: -.01em;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .contact-form__title em { font-style: italic; color: var(--pink); }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray-4);
+      margin-bottom: 7px;
+      letter-spacing: .01em;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--gray-2);
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--black);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      resize: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-3);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px var(--pink-mid);
+    }
+    .form-group textarea { height: 120px; }
+    .form-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 8px;
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, transform .2s var(--r);
+    }
+    .form-btn:hover {
+      background: var(--pink);
+      transform: translateY(-1px);
+    }
+
+    /* Responsivo */
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    @media (max-width: 480px) {
+      .contact-hero { padding: 100px 0 60px; }
+      .contact-form { padding: 28px 24px; }
+      .contact-card { padding: 18px 20px; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <!-- NAV -->
-  <nav class="nav" id="nav">
+  <nav class="nav scrolled" id="nav">
     <div class="nav__inner">
-
-      <!-- Esquerda: boas vindas -->
-      <a class="nav__back" href="index.html" data-i18n="nav.back">← Voltar ao início</a>
-
-      <!-- Direita: links + ícones + idioma -->
+      <span class="nav__greeting" data-i18n="nav.greeting">Boas vindas ao meu portfólio</span>
       <div class="nav__right">
         <ul class="nav__links">
           <li><a href="index.html#projects" data-i18n="nav.projects">Projetos</a></li>
           <li><a href="index.html#about" data-i18n="nav.about">Sobre mim</a></li>
-          <li><a href="contato.html" data-i18n="nav.contact">Contato</a></li>
+          <li><a href="contato.html" data-i18n="nav.contact" style="color:var(--pink)">Contato</a></li>
         </ul>
         <div class="nav__icons">
           <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="nav__icon-link" aria-label="LinkedIn">
@@ -34,31 +236,30 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           </a>
         </div>
-        <!-- Seletor de idioma (placeholder para implementação futura) -->
-        <!-- Hamburguer mobile -->
         <button class="nav__hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()">
           <span></span><span></span><span></span>
         </button>
-
-        <div class="nav__lang" id="langToggle" onclick="this.classList.toggle('open')">
-          <span class="nav__lang-current" style="display:flex;align-items:center;gap:6px;">
+        <div class="nav__lang" id="langToggle">
+          <span class="nav__lang-current">
             <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>
             <span>PT</span>
           </span>
           <div class="nav__lang-dropdown" id="langDropdown">
-            <button class="nav__lang-option nav__lang-option--active" data-lang="pt" style="display:flex;align-items:center;gap:6px;">
-              <svg width="18" height="12" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>PT
+            <button class="nav__lang-option nav__lang-option--active" data-lang="pt" title="Português">
+              <svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#009c3b"/><polygon points="12,1.5 22,8 12,14.5 2,8" fill="#fedf00"/><circle cx="12" cy="8" r="3.8" fill="#002776"/></svg>
+              <span>PT</span>
             </button>
-            <button class="nav__lang-option" data-lang="en" style="display:flex;align-items:center;gap:6px;">
-              <svg width="18" height="12" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><line x1="0" y1="0" x2="24" y2="16" stroke="white" stroke-width="2.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="white" stroke-width="2.5"/><line x1="0" y1="0" x2="24" y2="16" stroke="#C8102E" stroke-width="1.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="#C8102E" stroke-width="1.5"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg>EN
+            <button class="nav__lang-option" data-lang="en" title="English">
+              <svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><line x1="0" y1="0" x2="24" y2="16" stroke="white" stroke-width="2.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="white" stroke-width="2.5"/><line x1="0" y1="0" x2="24" y2="16" stroke="#C8102E" stroke-width="1.5"/><line x1="24" y1="0" x2="0" y2="16" stroke="#C8102E" stroke-width="1.5"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg>
+              <span>EN</span>
             </button>
-            <button class="nav__lang-option" data-lang="es" style="display:flex;align-items:center;gap:6px;">
-              <svg width="18" height="12" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg>ES
+            <button class="nav__lang-option" data-lang="es" title="Español">
+              <svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg>
+              <span>ES</span>
             </button>
           </div>
         </div>
       </div>
-
     </div>
   </nav>
 
@@ -66,10 +267,9 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__inner">
       <nav class="mobile-menu__nav">
-        <a href="index.html" class="mobile-menu__link" onclick="closeMobileMenu()">← Início</a>
-        <a href="index.html#projects" class="mobile-menu__link" onclick="closeMobileMenu()">Projetos</a>
-        <a href="index.html#about" class="mobile-menu__link" onclick="closeMobileMenu()">Sobre mim</a>
-        <a href="contato.html" class="mobile-menu__link" onclick="closeMobileMenu()">Contato</a>
+        <a href="index.html#projects" class="mobile-menu__link" onclick="closeMobileMenu()" data-i18n="nav.projects">Projetos</a>
+        <a href="index.html#about" class="mobile-menu__link" onclick="closeMobileMenu()" data-i18n="nav.about">Sobre mim</a>
+        <a href="contato.html" class="mobile-menu__link" data-i18n="nav.contact">Contato</a>
       </nav>
       <div class="mobile-menu__lang">
         <button class="mobile-menu__lang-btn active" data-lang="pt" onclick="setMobileLang(this)">
@@ -85,113 +285,127 @@
           ES
         </button>
       </div>
-
       <div class="mobile-menu__social">
-        <a href="mailto:joyceromonesilva@gmail.com" class="mobile-menu__social-link">✉️ E-mail</a>
-        <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="mobile-menu__social-link">LinkedIn</a>
-        <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="mobile-menu__social-link">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="mobile-menu__social-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="mobile-menu__social-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://drive.google.com/file/d/1Xzu4x3WwmeBIKhhytNSqONmMnsFuOOAO/view?usp=sharing" target="_blank" class="mobile-menu__social-link">
+          📄 Currículo
+        </a>
       </div>
     </div>
   </div>
 
-  <main>
+  <!-- CONTATO HERO -->
+  <section class="contact-hero">
+    <div class="container">
 
-    <!-- HERO -->
-    <div class="contact-hero reveal">
-      <span class="contact-label" data-i18n="contact.label">Contato</span>
-      <h1 class="contact-title" data-i18n="contact.heading">Vamos conversar sobre seu próximo projeto?</h1>
-      <p class="contact-sub" data-i18n="contact.sub1">Atuo conectando pesquisa, estratégia e execução para estruturar experiências claras, eficientes e com impacto real.</p>
-      <span class="contact-location">Maceió, Alagoas, Brasil</span>
-    </div>
+      <a href="index.html" class="contact-hero__back" data-i18n="nav.back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar ao início
+      </a>
 
-    <!-- GRID -->
-    <div class="contact-grid">
+      <p class="contact-hero__label" data-i18n="contact.label">Contato</p>
+      <h1 class="contact-hero__heading" data-i18n="contact.heading">Vamos conversar sobre o <em>seu próximo projeto?</em></h1>
+      <p class="contact-hero__sub" data-i18n="contact.sub1">Conecto pesquisa, estratégia e execução para construir experiências claras, eficientes e com impacto real.</p>
+      <p class="contact-hero__sub" data-i18n="contact.sub2">Aberta a oportunidades, projetos e colaborações.</p>
 
-      <!-- Canais -->
-      <div class="contact-channels reveal" style="transition-delay:.05s">
+      <div class="contact-grid">
 
-        <a href="mailto:joyceromonesilva@gmail.com" class="channel">
-          <div class="channel__icon">✉️</div>
-          <div class="channel__body">
-            <div class="channel__label" data-i18n="contact.email">E-mail</div>
-            <div class="channel__desc" data-i18n="contact.email.desc">Para oportunidades, projetos ou conversas diretas</div>
-          </div>
-          <span class="channel__arrow">→</span>
-        </a>
-
-        <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="channel">
-          <div class="channel__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gray-4)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </div>
-          <div class="channel__body">
-            <div class="channel__label" data-i18n="contact.linkedin">LinkedIn</div>
-            <div class="channel__desc" data-i18n="contact.linkedin.desc">Mais sobre minha trajetória e experiências</div>
-          </div>
-          <span class="channel__arrow">→</span>
-        </a>
-
-        <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="channel">
-          <div class="channel__icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gray-4)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-          </div>
-          <div class="channel__body">
-            <div class="channel__label" data-i18n="contact.whatsapp">WhatsApp</div>
-            <div class="channel__desc" data-i18n="contact.whatsapp.desc">Contato rápido para alinhamentos</div>
-          </div>
-          <span class="channel__arrow">→</span>
-        </a>
-
-        <a href="https://drive.google.com/file/d/1Xzu4x3WwmeBIKhhytNSqONmMnsFuOOAO/view?usp=sharing" target="_blank" class="channel">
-          <div class="channel__icon">📄</div>
-          <div class="channel__body">
-            <div class="channel__label" data-i18n="contact.cv">Currículo</div>
-            <div class="channel__desc" data-i18n="contact.cv.desc">Acesse meu currículo completo</div>
-          </div>
-          <span class="channel__arrow">→</span>
-        </a>
-
-      </div>
-
-      <!-- Formulário -->
-      <div class="contact-form-wrap reveal" style="transition-delay:.1s">
-        <h2 data-i18n="contact.form.title">Prefere escrever? Me manda uma mensagem.</h2>
-        <form action="https://formsubmit.co/joyceromonesilva@gmail.com" method="POST">
-           <input type="hidden" name="_subject" value="Nova mensagem do portfólio" />
-           <input type="hidden" name="_captcha" value="false" />
-           <input type="hidden" name="_next" value="https://joyceromone.com.br/contato.html" />
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nome</label>
-              <input type="text" name="nome" placeholder="Seu nome" required />
+        <!-- Cards -->
+        <div class="contact-cards">
+          <a href="/cdn-cgi/l/email-protection#52383d2b3137203d3f3d3c3712353f333b3e7c313d3f" class="contact-card">
+            <div class="contact-card__icon">✉️</div>
+            <div class="contact-card__text">
+              <p class="contact-card__label" data-i18n="contact.email">Email</p>
+              <p class="contact-card__desc" data-i18n="contact.email.desc">Para oportunidades, projetos ou conversas diretas</p>
             </div>
-            <div class="form-group">
-              <label>E-mail</label>
-              <input type="email" name="email" placeholder="seu@email.com" required />
+            <svg class="contact-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--pink)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </div>
+            <div class="contact-card__text">
+              <p class="contact-card__label" data-i18n="contact.linkedin">LinkedIn</p>
+              <p class="contact-card__desc" data-i18n="contact.linkedin.desc">Mais sobre minha trajetória e experiências</p>
+            </div>
+            <svg class="contact-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--pink)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </div>
+            <div class="contact-card__text">
+              <p class="contact-card__label" data-i18n="contact.whatsapp">WhatsApp</p>
+              <p class="contact-card__desc" data-i18n="contact.whatsapp.desc">Contato rápido para alinhamentos</p>
+            </div>
+            <svg class="contact-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+
+          <a href="https://drive.google.com/file/d/1Xzu4x3WwmeBIKhhytNSqONmMnsFuOOAO/view?usp=sharing" target="_blank" class="contact-card">
+            <div class="contact-card__icon">📄</div>
+            <div class="contact-card__text">
+              <p class="contact-card__label" data-i18n="contact.cv">Currículo</p>
+              <p class="contact-card__desc" data-i18n="contact.cv.desc">Acesse meu currículo completo</p>
+            </div>
+            <svg class="contact-card__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+        <!-- Formulário -->
+        <div class="contact-form">
+          <h2 class="contact-form__title" data-i18n="contact.form.title">Prefere escrever? <em>Manda uma mensagem.</em></h2>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Seu nome" />
           </div>
           <div class="form-group">
-            <label>Assunto</label>
-            <input type="text" name="assunto" placeholder="Ex: Oportunidade de trabalho, projeto freelance..." />
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="seu@email.com" />
           </div>
           <div class="form-group">
-            <label>Mensagem</label>
-            <textarea name="mensagem" placeholder="Conta um pouco mais sobre o que você está buscando..." required></textarea>
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" placeholder="Conta um pouco sobre seu projeto ou ideia..."></textarea>
           </div>
-          <button type="submit" class="form-btn" data-i18n="contact.form.btn">Enviar mensagem →</button>
-        </form>
+          <button class="form-btn" data-i18n="contact.form.btn" onclick="handleFormSubmit()">Enviar mensagem →</button>
+        </div>
+
       </div>
-
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <span class="footer__copy">© 2026 Joyce Romone · <span data-i18n="footer.made">feito por uma humana 🤍</span></span>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer__copy">© 2026 Joyce Romone · feito por uma humana 🤍</span>
     <div class="footer__links">
       <a href="https://www.linkedin.com/in/joyromone/" target="_blank">LinkedIn</a>
       <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank">WhatsApp</a>
     </div>
   </footer>
 
-    <script src="contato.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+  <script>
+        // Formulário — abre mailto como fallback simples
+    function handleFormSubmit() {
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg  = document.getElementById('mensagem').value.trim();
+      if (!nome || !email || !msg) {
+        alert('Preencha todos os campos antes de enviar 🙂');
+        return;
+      }
+      const subject = encodeURIComponent('Contato via portfólio — ' + nome);
+      const body    = encodeURIComponent(`Nome: ${nome}\nEmail: ${email}\n\n${msg}`);
+      window.location.href = `mailto:joyceromonesilva@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
 </body>
 </html>

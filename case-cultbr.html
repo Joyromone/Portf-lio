@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CultBR · Joyce Romone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .case-page{padding-top:56px}
+    .case-hero {
+      background: var(--off);
+      color: var(--black);
+      padding: 80px 0 64px;
+    }
+    .case-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:400;color:var(--gray-3);margin-bottom:48px;transition:color .2s;text-decoration:none}
+    .case-hero__back:hover{color:var(--black)}
+    .case-hero__tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .case-hero__tag{font-size:11px;font-weight:500;padding:4px 12px;border-radius:100px;background: var(--white); border: 1px solid var(--gray-2);color: var(--gray-4);border:1px solid var(--gray-2)}
+    .case-hero__tag--pink{background:rgba(217,96,122,.2);color:var(--pink)}
+    .case-hero__title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4.5vw,52px);line-height:1.1;letter-spacing:-.02em;color:var(--black);max-width:760px;margin-bottom:20px}
+    .case-hero__summary{font-size:16px;font-weight:300;color:var(--gray-4);line-height:1.7;max-width:600px}
+    .case-hero__meta{display:flex;margin-top:48px;border-top:1px solid var(--gray-2);padding-top:32px;flex-wrap:wrap;gap:0}
+    .case-hero__meta-item{padding-right:40px;margin-right:40px;border-right:1px solid var(--gray-2)}
+    .case-hero__meta-item:last-child{border-right:none;padding-right:0;margin-right:0}
+    .case-hero__meta-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-3);margin-bottom:6px}
+    .case-hero__meta-value{font-size:14px;font-weight:500;color:var(--black)}
+    .case-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 120px;
+    }
+    .case-section{padding:64px 0 0}
+    .case-section__label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;display:block}
+    .case-section__title{font-family:'DM Serif Display',serif;font-size:clamp(22px,3vw,32px);line-height:1.2;letter-spacing:-.01em;color:var(--black);margin-bottom:20px}
+    .case-section__lead{font-size:15px;font-weight:300;color:var(--gray-4);line-height:1.75;margin-bottom:24px}
+    .case-divider{height:1px;background:var(--gray-1);margin:64px 0 0}
+    .case-box{background:var(--off);border-radius:16px;padding:28px 32px;margin-bottom:16px}
+    .case-box__label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;display:block}
+    .key-question{background:var(--white);border-left:3px solid var(--pink);border-radius:0 12px 12px 0;padding:18px 20px;margin-top:16px}
+    .key-question__label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:8px;display:block}
+    .key-question__text{font-size:14px;font-weight:400;color:var(--black);line-height:1.65}
+    .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+    .role-item{background:var(--off);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start}
+    .role-item__num{font-family:'DM Serif Display',serif;font-size:16px;color:var(--pink);flex-shrink:0;line-height:1.3}
+    .role-item__text{font-size:12px;font-weight:400;color:var(--gray-4);line-height:1.5}
+    .timeline{display:flex;flex-direction:column}
+    .timeline__item{display:grid;grid-template-columns:28px 1fr;gap:16px}
+    .timeline__spine{display:flex;flex-direction:column;align-items:center}
+    .timeline__dot{width:10px;height:10px;border-radius:50%;background:var(--pink);flex-shrink:0;margin-top:4px}
+    .timeline__line{width:1px;flex:1;background:var(--gray-2);margin-top:6px}
+    .timeline__item:last-child .timeline__line{display:none}
+    .timeline__content{padding-bottom:32px}
+    .timeline__step{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-3);margin-bottom:6px}
+    .timeline__title{font-size:15px;font-weight:600;color:var(--black);margin-bottom:8px}
+    .timeline__text{font-size:13px;font-weight:300;color:var(--gray-4);line-height:1.7;margin-bottom:10px}
+    .tool-pills{display:flex;flex-wrap:wrap;gap:6px}
+    .tool-pill{font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px;background:var(--white);color:var(--gray-4);border:1px solid var(--gray-2)}
+    .person-card{background:var(--off);border-radius:10px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+    .person-card__avatar{width:32px;height:32px;border-radius:50%;background:var(--pink-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:700;color:var(--pink)}
+    .person-card__name{font-size:12px;font-weight:600;color:var(--black);margin-bottom:2px}
+    .person-card__desc{font-size:11px;font-weight:300;color:var(--gray-3)}
+    .empathy-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+    .empathy-card{border-radius:12px;padding:16px 18px}
+    .empathy-card__header{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+    .empathy-card__label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .empathy-items{display:flex;flex-direction:column;gap:5px}
+    .empathy-item{font-size:11px;font-weight:300;color:var(--gray-4);line-height:1.5;padding:6px 10px;background:rgba(255,255,255,.7);border-radius:6px}
+    .jtbd-card{background:var(--white);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+    .jtbd-card__header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+    .jtbd-card__avatar{width:24px;height:24px;border-radius:50%;background:var(--pink-bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--pink);flex-shrink:0}
+    .jtbd-card__name{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+    .jtbd-item{font-size:11px;font-weight:300;color:var(--gray-4);line-height:1.55;padding-left:10px;border-left:2px solid var(--gray-2);margin-bottom:6px}
+    .feature-item{background:var(--off);border-radius:16px;padding:24px 28px;margin-bottom:10px;display:flex;gap:20px;align-items:flex-start}
+    .feature-item__num{font-family:'DM Serif Display',serif;font-size:24px;color:var(--pink);flex-shrink:0;line-height:1;margin-top:2px}
+    .feature-item__title{font-size:14px;font-weight:600;color:var(--black);margin-bottom:6px}
+    .feature-item__desc{font-size:13px;font-weight:300;color:var(--gray-4);line-height:1.7}
+    .impact-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px}
+    .impact-item__arrow{color:var(--pink);font-size:20px;flex-shrink:0;line-height:1;margin-top:2px}
+    .impact-item__title{font-size:14px;font-weight:500;color: var(--black);margin-bottom:4px}
+    .impact-item__desc{font-size:13px;font-weight:300;color:var(--gray-3);line-height:1.65}
+    .case-impact{background: var(--off);border-radius:24px;padding:48px 40px;margin-top:64px}
+    .case-impact__label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;display:block}
+    .case-impact__intro{font-size:15px;font-weight:300;color:var(--gray-4);line-height:1.7;margin-bottom:32px}
+    .next-steps{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+    .next-step{display:flex;gap:12px;align-items:flex-start;background:var(--gray-1);border-radius:14px;padding:16px 18px}
+    .next-step__icon{font-size:14px;flex-shrink:0;margin-top:1px}
+    .next-step__title{font-size:12px;font-weight:500;color: var(--black);margin-bottom:2px}
+    .next-step__desc{font-size:11px;font-weight:300;color:var(--gray-3);line-height:1.55}
+    .product-links{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+    .product-link-card{display:flex;align-items:center;gap:10px;text-decoration:none;padding:10px 14px;background:var(--white);border:1px solid var(--gray-1);border-radius:10px;transition:background .2s}
+    .product-link-card:hover{background: var(--off)}
+    .product-link-card__icon{font-size:16px}
+    .product-link-card__title{font-size:12px;font-weight:500;color: var(--black);margin-bottom:2px}
+    .product-link-card__url{font-size:11px;color: var(--gray-3)}
+    .case-marquee-wrap{margin-top:64px}
+    .case-marquee-wrap .case-marquee__track{overflow:hidden;border-radius:20px}
+    .case-marquee-wrap .case-marquee__inner{display:flex;width:max-content;gap:0;animation:case-marquee-scroll 30s linear infinite}
+    .case-marquee-wrap .case-marquee__inner:hover{animation-play-state:paused}
+    .case-marquee-wrap .case-marquee__group{display:flex;flex-shrink:0;gap:12px;padding-right:12px}
+    .case-marquee-wrap .case-marquee__group img{height:280px;width:auto;max-width:none;border-radius:14px;object-fit:cover;display:block;flex-shrink:0;transition:transform .4s ease}
+    .case-marquee-wrap .case-marquee__group img:hover{transform:scale(1.04)}
+    @media(max-width:768px){.case-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 120px;
+    }.case-hero {
+      background: var(--off);
+      color: var(--black);
+      padding: 80px 0 64px;
+    }.case-hero__meta{flex-direction:column;gap:20px}.case-hero__meta-item{border-right:none;padding-right:0;margin-right:0;border-bottom:1px solid var(--gray-2);padding-bottom:20px}.case-hero__meta-item:last-child{border-bottom:none;padding-bottom:0}.role-grid{grid-template-columns:1fr}.empathy-grid{grid-template-columns:1fr}.case-impact{padding:32px 24px;border-radius:16px}.case-marquee-wrap .case-marquee__group img{height:200px}}
+
+    /* ── CASE NAV ── */
+    .case-nav {
+      border-top: 1px solid var(--gray-1);
+      background: var(--white);
+      padding: 32px 0;
+    }
+    .case-nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+    }
+    .case-nav__item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .case-nav__item--prev { align-items: flex-start; }
+    .case-nav__item--next { align-items: flex-end; }
+    .case-nav__item--disabled { pointer-events: none; opacity: .25; }
+    .case-nav__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+    .case-nav__title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      transition: color .2s;
+    }
+    .case-nav__item:hover .case-nav__title { color: var(--pink); }
+    .case-nav__home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .case-nav__home-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--gray-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-3);
+      transition: border-color .2s, color .2s;
+    }
+    .case-nav__home:hover .case-nav__home-icon {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+    .case-nav__home-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+    @media (max-width: 600px) {
+      .case-nav__inner { padding: 0 24px; gap: 12px; }
+      .case-nav__title { font-size: 12px; }
+    }
+
+  </style>
+</head>
+<body class="case-page">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <span class="nav__greeting">Boas vindas ao meu portfólio</span>
+      <div class="nav__right">
+        <ul class="nav__links">
+          <li><a href="index.html#projects">Projetos</a></li>
+          <li><a href="index.html#about">Sobre mim</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <div class="nav__icons">
+          <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="nav__icon-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="nav__icon-link" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        </div>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        <div class="nav__lang" id="langToggle">
+          <span class="nav__lang-current"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg><span>PT</span></span>
+          <div class="nav__lang-dropdown" id="langDropdown">
+            <button class="nav__lang-option nav__lang-option--active" data-lang="pt"><svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#009c3b"/><polygon points="12,1.5 22,8 12,14.5 2,8" fill="#fedf00"/><circle cx="12" cy="8" r="3.8" fill="#002776"/></svg><span>PT</span></button>
+            <button class="nav__lang-option" data-lang="en"><svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg><span>EN</span></button>
+            <button class="nav__lang-option" data-lang="es"><svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg><span>ES</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu__inner"><nav class="mobile-menu__nav"><a href="index.html#projects" class="mobile-menu__link" onclick="closeMobileMenu()">Projetos</a><a href="index.html#about" class="mobile-menu__link" onclick="closeMobileMenu()">Sobre mim</a><a href="contato.html" class="mobile-menu__link">Contato</a></nav></div></div>
+
+  <!-- HERO -->
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html" class="case-hero__back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>Voltar aos projetos</a>
+      <div class="case-hero__tags">
+        <span class="case-hero__tag">GovTech</span>
+        <span class="case-hero__tag">UX Research</span>
+        <span class="case-hero__tag">Setor Público</span>
+        <span class="case-hero__tag case-hero__tag--pink">NEES · Ministério da Cultura · 2025</span>
+      </div>
+      <h1 class="case-hero__title">Humanizando a gestão cultural no Governo Federal</h1>
+      <p class="case-hero__summary">O CultBR é a plataforma do Ministério da Cultura para operacionalizar a Política Nacional Aldir Blanc. Conduzi a pesquisa com gestores, entrevistas em profundidade, síntese de insights e wireframes da solução.</p>
+      <div class="case-hero__meta">
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Realizado em</div><div class="case-hero__meta-value">NEES · Governo Federal</div></div>
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Atuação</div><div class="case-hero__meta-value">UX Designer</div></div>
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Duração</div><div class="case-hero__meta-value">2025</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPO -->
+  <div class="case-body">
+
+    <!-- CONTEXTO -->
+    <div class="case-section">
+      <span class="case-section__label">Contexto</span>
+      <h2 class="case-section__title">Uma política federal permanente que precisava de um sistema à altura.</h2>
+      <p class="case-section__lead">A Lei Aldir Blanc estruturou o repasse contínuo de recursos da União para Estados e Municípios para fomento cultural. Diferente das ações emergenciais, ela tem caráter duradouro. O CultBR foi criado para operacionalizar tudo isso em um único ambiente digital.</p>
+      <div class="case-box">
+        <p class="case-section__lead" style="margin-bottom:0;">A plataforma integra três módulos: o <strong>Módulo Gestão</strong> para servidores do Ministério, o <strong>Módulo Rede</strong> para Estados e Municípios, e o <strong>Portal CultBR</strong> para agentes culturais e a sociedade. O desafio estava no meio: os gestores culturais locais, que precisavam preencher, acompanhar e prestar contas de planos de ação complexos em sistemas pouco intuitivos.</p>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- MEU PAPEL -->
+    <div class="case-section">
+      <span class="case-section__label">Meu papel</span>
+      <h2 class="case-section__title">Mergulhar no universo dos gestores antes de desenhar qualquer tela.</h2>
+      <p class="case-section__lead">Atuei como UX Designer no NEES, responsável por estruturar o processo de descoberta, conduzir as entrevistas, sintetizar os insights e traduzir tudo em wireframes validados com os usuários reais.</p>
+      <div class="role-grid">
+        <div class="role-item"><span class="role-item__num">01</span><span class="role-item__text">Roteiro e condução de entrevistas</span></div>
+        <div class="role-item"><span class="role-item__num">02</span><span class="role-item__text">Mapa de empatia e afinidade</span></div>
+        <div class="role-item"><span class="role-item__num">03</span><span class="role-item__text">Síntese de pain points</span></div>
+        <div class="role-item"><span class="role-item__num">04</span><span class="role-item__text">Wireframes e fluxos de navegação</span></div>
+        <div class="role-item"><span class="role-item__num">05</span><span class="role-item__text">Testes de usabilidade</span></div>
+        <div class="role-item"><span class="role-item__num">06</span><span class="role-item__text">Priorização do MVP</span></div>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- PESQUISA -->
+    <div class="case-section">
+      <span class="case-section__label">Pesquisa</span>
+      <h2 class="case-section__title">Ouvir antes de propor. Entender antes de prototipar.</h2>
+      <p class="case-section__lead">Conduzi uma série de entrevistas semi-estruturadas com gestores de diferentes perfis e regiões. O objetivo não era levantar uma lista de funcionalidades, mas entender a jornada real de quem vive a burocracia cultural todos os dias.</p>
+
+      <div class="key-question">
+        <span class="key-question__label">Objetivo da pesquisa</span>
+        <p class="key-question__text">Entender como diferentes perfis trabalham, quais desafios enfrentam no dia a dia e o que poderia facilitar seus processos. Queríamos mapear onde estão os maiores entraves e quais oportunidades existem para tornar a comunicação, a transparência e a execução dos projetos culturais mais ágeis e eficientes.</p>
+      </div>
+
+      <div class="timeline" style="margin-top:40px;">
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Entrevistas em profundidade</div>
+            <div class="timeline__title">5 perfis entrevistados ao longo de abril de 2025</div>
+            <p class="timeline__text">Entrevistei gestores de diferentes instâncias: Ministério da Cultura, Fundação Cultural Palmares e entes federativos. Cada perfil revelou uma camada diferente da mesma dor: sistemas fragmentados, falta de transparência e retrabalho constante.</p>
+            <div class="tool-pills"><span class="tool-pill">Entrevistas semi-estruturadas</span><span class="tool-pill">Roteiro validado com o time</span><span class="tool-pill">Início: 02/04/2025</span></div>
+            <div style="margin-top:16px;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-3);margin-bottom:10px;">Quem entrevistamos</div>
+              <div class="person-card"><div class="person-card__avatar">G</div><div><p class="person-card__name">Gustavo · Coordenador de Convênios</p><p class="person-card__desc">Fundação Cultural Palmares · responsável por repasse de recursos para comunidades quilombolas. Principal sistema: TransfereGov.</p></div></div>
+              <div class="person-card"><div class="person-card__avatar">M</div><div><p class="person-card__name">Mariana · Gestora de prestação de contas</p><p class="person-card__desc">Responsável por verificar se os recursos foram distribuídos adequadamente. Precisa rastrear editais, cruzar dados e acompanhar execução em tempo real.</p></div></div>
+              <div class="person-card"><div class="person-card__avatar">M</div><div><p class="person-card__name">Matheus · Ponto focal da Secretaria Executiva</p><p class="person-card__desc">Ministério da Cultura · coordena e supervisiona os processos internos. Precisa de visão consolidada para auditorias do TCU.</p></div></div>
+              <div class="person-card"><div class="person-card__avatar">I</div><div><p class="person-card__name">Isabel · Técnica de complexidade intelectual</p><p class="person-card__desc">Secretaria Executiva do Ministério · coordena políticas culturais e de fomento direto. Precisa de relatórios consolidados para avaliação qualitativa e quantitativa.</p></div></div>
+              <div class="person-card"><div class="person-card__avatar">I</div><div><p class="person-card__name">Inês · Técnica de complexidade intelectual</p><p class="person-card__desc">Secretaria Executiva do Ministério · envolvida com fomento direto e aguardando implementação do sistema.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Jobs to be Done</div>
+            <div class="timeline__title">O que cada perfil realmente precisava conseguir fazer</div>
+            <p class="timeline__text">A partir das entrevistas, mapeamos os Jobs to be Done de cada perfil. Essa estrutura revelou que os problemas não eram técnicos — eram de fluxo, visibilidade e confiança no processo.</p>
+            <div class="jtbd-card"><div class="jtbd-card__header"><div class="jtbd-card__avatar">G</div><span class="jtbd-card__name">Gustavo</span></div><div class="jtbd-item">Centralizar informações de eventos em um único portal para ampliar a participação das comunidades</div><div class="jtbd-item">Digitalizar e agilizar a prestação de contas de projetos culturais</div><div class="jtbd-item">Alcançar diretamente comunidades quilombolas e grupos isolados sem intermediários</div></div>
+            <div class="jtbd-card"><div class="jtbd-card__header"><div class="jtbd-card__avatar">M</div><span class="jtbd-card__name">Mariana</span></div><div class="jtbd-item">Acessar dados completos para verificar se os recursos foram distribuídos conforme os normativos</div><div class="jtbd-item">Automatizar o cruzamento de dados e reduzir a verificação manual de documentos</div><div class="jtbd-item">Acompanhar o progresso de projetos em tempo real para corrigir problemas antes da prestação de contas</div></div>
+            <div class="jtbd-card"><div class="jtbd-card__header"><div class="jtbd-card__avatar">M</div><span class="jtbd-card__name">Matheus · Isabel</span></div><div class="jtbd-item">Acessar um sistema integrado para coordenar e supervisionar os processos do ministério de forma centralizada</div><div class="jtbd-item">Coletar dados organizados para responder às demandas de auditoria do TCU com precisão</div><div class="jtbd-item">Um sistema intuitivo que a cultura organizacional do ministério adote sem resistência</div></div>
+            <div class="tool-pills" style="margin-top:12px;"><span class="tool-pill">Jobs to be Done</span><span class="tool-pill">5 entrevistados</span><span class="tool-pill">3 perfis distintos</span></div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Síntese</div>
+            <div class="timeline__title">Mapa de empatia: o que os gestores pensam, ouvem, veem e fazem</div>
+            <p class="timeline__text">As informações coletadas foram organizadas em mapas de empatia e afinidade. Esse processo revelou padrões que se repetiam entre perfis diferentes: a ansiedade com perda de dados, a frustração com múltiplos sistemas e a sobrecarga de quem precisava dar suporte e ainda executar.</p>
+            <div class="tool-pills"><span class="tool-pill">Mapa de empatia</span><span class="tool-pill">Mapa de afinidade</span><span class="tool-pill">FigJam</span></div>
+            <div class="empathy-grid">
+              <div class="empathy-card" style="background:#fdf0f2;border:1px solid rgba(217,96,122,.15);">
+                <div class="empathy-card__header"><span style="font-size:18px;">💭</span><span class="empathy-card__label" style="color:var(--pink);">Pensam e sentem</span></div>
+                <div class="empathy-items">
+                  <div class="empathy-item">Preocupação com prazos e possíveis falhas nos sistemas</div>
+                  <div class="empathy-item">Frustração com retrabalhos desnecessários</div>
+                  <div class="empathy-item">Sobrecarga com demandas de suporte técnico</div>
+                  <div class="empathy-item">Orgulho quando apoiam projetos culturais relevantes</div>
+                  <div class="empathy-item">Esperança de que novos sistemas simplifiquem processos</div>
+                </div>
+              </div>
+              <div class="empathy-card" style="background:#f0f5ff;border:1px solid rgba(99,130,210,.15);">
+                <div class="empathy-card__header"><span style="font-size:18px;">👂</span><span class="empathy-card__label" style="color:#5b7bd5;">Ouvem</span></div>
+                <div class="empathy-items">
+                  <div class="empathy-item">Reclamações de usuários sobre dificuldades com os sistemas</div>
+                  <div class="empathy-item">Pedidos urgentes de ajuda em períodos de submissão</div>
+                  <div class="empathy-item">Dúvidas repetitivas já documentadas em manuais</div>
+                  <div class="empathy-item">Relatos de problemas de conexão em municípios pequenos</div>
+                </div>
+              </div>
+              <div class="empathy-card" style="background:#f0faf4;border:1px solid rgba(0,150,80,.12);">
+                <div class="empathy-card__header"><span style="font-size:18px;">👀</span><span class="empathy-card__label" style="color:#00a862;">Veem</span></div>
+                <div class="empathy-items">
+                  <div class="empathy-item">Interfaces de sistemas que não dialogam entre si</div>
+                  <div class="empathy-item">Dados brutos que precisam ser tratados manualmente</div>
+                  <div class="empathy-item">Erros de preenchimento frequentes nos formulários</div>
+                  <div class="empathy-item">Acesso crescente via dispositivos móveis</div>
+                </div>
+              </div>
+              <div class="empathy-card" style="background:#fdf8f0;border:1px solid rgba(200,140,0,.15);">
+                <div class="empathy-card__header"><span style="font-size:18px;">🗣️</span><span class="empathy-card__label" style="color:#b87a00;">Fazem e falam</span></div>
+                <div class="empathy-items">
+                  <div class="empathy-item">Criam tutoriais e manuais detalhados sobre os sistemas</div>
+                  <div class="empathy-item">Realizam plantões de dúvidas para auxiliar usuários</div>
+                  <div class="empathy-item">Analisam e aprovam planos de ação e seus detalhamentos</div>
+                  <div class="empathy-item">Propõem melhorias com base na experiência diária</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Wireframes e validação</div>
+            <div class="timeline__title">Wireframes validados com usuários reais antes do desenvolvimento</div>
+            <p class="timeline__text">Os fluxos foram prototipados em wireframes e testados com gestores antes de qualquer linha de código. Cada decisão passou a ter respaldo em evidência de pesquisa, eliminando suposições e reduzindo risco de retrabalho nas sprints de engenharia.</p>
+            <div class="tool-pills"><span class="tool-pill">Figma</span><span class="tool-pill">Wireframes</span><span class="tool-pill">Testes de usabilidade</span><span class="tool-pill">Priorização por impacto</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPACTO -->
+    <div class="case-impact">
+      <span class="case-impact__label">★ Impacto e próximos passos</span>
+      <p class="case-impact__intro">O processo de discovery gerou uma base sólida para o desenvolvimento. Cada decisão de produto passou a ter respaldo em evidência de pesquisa. O projeto evoluiu e já está em produção, com novas frentes abertas.</p>
+      <div class="impact-item"><span class="impact-item__arrow">→</span><div><p class="impact-item__title">Wireframes validados com usuários reais</p><p class="impact-item__desc">Os fluxos foram testados com gestores antes do desenvolvimento, eliminando suposições e reduzindo risco de retrabalho nas sprints de engenharia.</p></div></div>
+      <div class="impact-item"><span class="impact-item__arrow">→</span><div><p class="impact-item__title">Voz dos gestores dentro do produto</p><p class="impact-item__desc">Falas reais das entrevistas se tornaram critérios de aceitação. O time passou a tomar decisões com base em evidência.</p></div></div>
+      <div class="impact-item" style="margin-bottom:32px;"><span class="impact-item__arrow">→</span><div><p class="impact-item__title">MVP priorizado com critério de impacto real</p><p class="impact-item__desc">A priorização foi guiada pelos pain points mais críticos levantados na pesquisa, garantindo que o primeiro entregável resolvesse o que mais travava os gestores.</p></div></div>
+
+      <div style="background:var(--gray-1);border-radius:14px;padding:20px 22px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;">Para onde evoluímos</div>
+        <div class="next-steps">
+          <div class="next-step"><span class="next-step__icon">📋</span><div><p class="next-step__title">Módulo Gestão</p><p class="next-step__desc">Acompanho o avanço da construção do escopo, com responsabilidade sobre documentação e fluxos no Figma.</p></div></div>
+          <div class="next-step"><span class="next-step__icon">📖</span><div><p class="next-step__title">Manual CultBR Editais</p><p class="next-step__desc">Contribuição direta para o manual oficial da plataforma em manual.cultbr.cultura.gov.br, substituindo o material interno por um canal centralizado e público.</p></div></div>
+          <div class="next-step"><span class="next-step__icon">🌐</span><div><p class="next-step__title">Portal CultBR</p><p class="next-step__desc">Levantamento de insumos e refinamentos da home do portal público, com foco no grande público e em comunicação mais atrativa.</p></div></div>
+          <div class="next-step"><span class="next-step__icon">🎨</span><div><p class="next-step__title">Mudança de direção visual</p><p class="next-step__desc">O produto evoluiu: o sistema passou a ter cara de sistema, bonito e claro, sem o tom lúdico inicial. Uma decisão estratégica feita por quem conhece o produto.</p></div></div>
+        </div>
+
+        <div style="margin-top:16px;background:var(--gray-1);border-radius:14px;padding:18px 20px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;">Conheça o produto</div>
+          <div class="product-links">
+            <a href="https://cultbr.cultura.gov.br/entrar" target="_blank" class="product-link-card"><span class="product-link-card__icon">🌐</span><div><p class="product-link-card__title">Portal CultBR</p><p class="product-link-card__url">cultbr.cultura.gov.br ↗</p></div></a>
+            <a href="https://www.gov.br/cultura/pt-br/assuntos/politica-nacional-aldir-blanc" target="_blank" class="product-link-card"><span class="product-link-card__icon">📋</span><div><p class="product-link-card__title">Política Nacional Aldir Blanc</p><p class="product-link-card__url">gov.br/cultura ↗</p></div></a>
+            <a href="https://www.instagram.com/p/DWhJT-tk5RC/" target="_blank" class="product-link-card"><span class="product-link-card__icon">📸</span><div><p class="product-link-card__title">CultBR no Instagram</p><p class="product-link-card__url">@cultbr ↗</p></div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="case-marquee-wrap">
+      <div class="case-marquee__track">
+        <div class="case-marquee__inner">
+          <div class="case-marquee__group">
+            <img src="images/cultbr-1.jpg" alt="CultBR" />
+            <img src="images/cultbr-2.jpg" alt="CultBR" />
+            <img src="images/cultbr-3.jpg" alt="CultBR" />
+            <img src="images/cultbr-4.jpg" alt="CultBR" />
+            <img src="images/cultbr-5.jpg" alt="CultBR" />
+            <img src="images/cultbr-6.jpg" alt="CultBR" />
+          </div>
+          <div class="case-marquee__group" aria-hidden="true">
+            <img src="images/cultbr-1.jpg" alt="" />
+            <img src="images/cultbr-2.jpg" alt="" />
+            <img src="images/cultbr-3.jpg" alt="" />
+            <img src="images/cultbr-4.jpg" alt="" />
+            <img src="images/cultbr-5.jpg" alt="" />
+            <img src="images/cultbr-6.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="case-nav">
+    <div class="case-nav__inner">
+      <a href="case-einscricao.html" class="case-nav__item case-nav__item--prev">
+        <span class="case-nav__label">Anterior</span>
+        <span class="case-nav__title">← E-Inscrição</span>
+      </a>
+      <a href="index.html" class="case-nav__home">
+        <span class="case-nav__home-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        <span class="case-nav__home-label">Início</span>
+      </a>
+      <a href="case-boticario.html" class="case-nav__item case-nav__item--next">
+        <span class="case-nav__label">Próximo</span>
+        <span class="case-nav__title">Influenciadores da Beleza →</span>
+      </a>
+    </div>
+  </nav>
+  <footer class="footer">
+    <span class="footer__copy">© 2026 Joyce Romone · feito por uma humana 🤍</span>
+    <div class="footer__links">
+      <a href="https://www.linkedin.com/in/joyromone/" target="_blank">LinkedIn</a>
+      <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

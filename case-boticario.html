@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Influenciadores da Beleza · Joyce Romone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="case-einscricao.html" />
+  <style>
+    /* reutiliza o mesmo padrão de case-einscricao — estilos inline aqui */
+    .case-page{padding-top:56px}
+    .case-hero {
+      background: var(--off);
+      color: var(--black);
+      padding: 80px 0 64px;
+    }
+    .case-hero__back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:400;color:var(--gray-3);margin-bottom:48px;transition:color .2s;text-decoration:none}
+    .case-hero__back:hover{color:var(--black)}
+    .case-hero__tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .case-hero__tag{font-size:11px;font-weight:500;padding:4px 12px;border-radius:100px;background: var(--white); border: 1px solid var(--gray-2);color: var(--gray-4);border:1px solid var(--gray-2)}
+    .case-hero__tag--pink{background:rgba(217,96,122,.2);color:var(--pink)}
+    .case-hero__title{font-family:'DM Serif Display',serif;font-size:clamp(28px,4.5vw,52px);line-height:1.1;letter-spacing:-.02em;color:var(--black);max-width:760px;margin-bottom:20px}
+    .case-hero__summary{font-size:16px;font-weight:300;color:var(--gray-4);line-height:1.7;max-width:600px}
+    .case-hero__meta{display:flex;gap:0;margin-top:48px;border-top:1px solid var(--gray-2);padding-top:32px;flex-wrap:wrap;gap:0}
+    .case-hero__meta-item{padding-right:40px;margin-right:40px;border-right:1px solid var(--gray-2)}
+    .case-hero__meta-item:last-child{border-right:none;padding-right:0;margin-right:0}
+    .case-hero__meta-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-3);margin-bottom:6px}
+    .case-hero__meta-value{font-size:14px;font-weight:500;color:var(--black)}
+    .case-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 120px;
+    }
+    .case-section{padding:64px 0 0}
+    .case-section__label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;display:block}
+    .case-section__title{font-family:'DM Serif Display',serif;font-size:clamp(22px,3vw,32px);line-height:1.2;letter-spacing:-.01em;color:var(--black);margin-bottom:20px}
+    .case-section__lead{font-size:15px;font-weight:300;color:var(--gray-4);line-height:1.75;margin-bottom:24px}
+    .case-divider{height:1px;background:var(--gray-1);margin:64px 0 0}
+    .case-box{background:var(--off);border-radius:16px;padding:28px 32px;margin-bottom:16px}
+    .case-box__label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:14px;display:block}
+    .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+    .role-item{background:var(--off);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start}
+    .role-item__num{font-family:'DM Serif Display',serif;font-size:16px;color:var(--pink);flex-shrink:0;line-height:1.3}
+    .role-item__text{font-size:12px;font-weight:400;color:var(--gray-4);line-height:1.5}
+    .timeline{display:flex;flex-direction:column}
+    .timeline__item{display:grid;grid-template-columns:28px 1fr;gap:16px}
+    .timeline__spine{display:flex;flex-direction:column;align-items:center}
+    .timeline__dot{width:10px;height:10px;border-radius:50%;background:var(--pink);flex-shrink:0;margin-top:4px}
+    .timeline__line{width:1px;flex:1;background:var(--gray-2);margin-top:6px}
+    .timeline__item:last-child .timeline__line{display:none}
+    .timeline__content{padding-bottom:32px}
+    .timeline__step{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-3);margin-bottom:6px}
+    .timeline__title{font-size:15px;font-weight:600;color:var(--black);margin-bottom:8px}
+    .timeline__text{font-size:13px;font-weight:300;color:var(--gray-4);line-height:1.7;margin-bottom:10px}
+    .tool-pills{display:flex;flex-wrap:wrap;gap:6px}
+    .tool-pill{font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px;background:var(--white);color:var(--gray-4);border:1px solid var(--gray-2)}
+    .pain-item{padding:12px 16px;background:var(--white);border-radius:10px;font-size:12px;font-weight:300;color:var(--gray-4);line-height:1.55;margin-bottom:6px}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+    .stat-card{background:var(--white);border-radius:12px;padding:18px;text-align:center}
+    .stat-card__num{font-family:'DM Serif Display',serif;font-size:32px;color:var(--pink);margin-bottom:4px}
+    .stat-card__label{font-size:11px;font-weight:500;color:var(--black);margin-bottom:4px}
+    .stat-card__sub{font-size:10px;font-weight:300;color:var(--gray-3);line-height:1.5}
+    .case-quote{border-left:3px solid var(--pink);padding:20px 24px;margin:16px 0;background:var(--off);border-radius:0 14px 14px 0}
+    .case-quote__text{font-family:'DM Serif Display',serif;font-size:16px;font-style:italic;color:var(--black);line-height:1.6;margin-bottom:12px}
+    .case-quote__author{font-size:11px;font-weight:500;color:var(--gray-3);text-transform:uppercase;letter-spacing:.1em}
+    .feature-item{background:var(--off);border-radius:16px;padding:24px 28px;margin-bottom:10px;display:flex;gap:20px;align-items:flex-start}
+    .feature-item__num{font-family:'DM Serif Display',serif;font-size:24px;color:var(--pink);flex-shrink:0;line-height:1;margin-top:2px}
+    .feature-item__title{font-size:14px;font-weight:600;color:var(--black);margin-bottom:6px}
+    .feature-item__desc{font-size:13px;font-weight:300;color:var(--gray-4);line-height:1.7}
+    .case-impact{background: var(--off);border-radius:24px;padding:48px 40px;margin-top:64px}
+    .case-impact__label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;display:block}
+    .case-impact__intro{font-size:15px;font-weight:300;color:var(--gray-4);line-height:1.7;margin-bottom:32px}
+    .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+    .impact-card{background:var(--white);border:1px solid var(--gray-1);border-radius:12px;padding:20px}
+    .impact-card__label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+    .impact-card__num{font-family:'DM Serif Display',serif;font-size:36px;color:var(--pink);line-height:1;margin-bottom:6px}
+    .impact-card__title{font-size:12px;font-weight:500;color:var(--black);margin-bottom:4px}
+    .impact-card__sub{font-size:11px;font-weight:300;color:var(--gray-3)}
+    .impact-quote{background:var(--white);border:1px solid var(--gray-1);border-radius:12px;padding:20px 24px;border-left:3px solid var(--pink);margin-bottom:10px}
+    .impact-quote__text{font-family:'DM Serif Display',serif;font-style:italic;font-size:14px;line-height:1.7;color:var(--gray-4);margin-bottom:8px}
+    .impact-quote__author{font-size:11px;font-weight:600;color:var(--gray-3);letter-spacing:.06em;text-transform:uppercase}
+    .challenge-item{background:var(--off);border-radius:14px;padding:20px 24px;margin-bottom:10px;display:flex;gap:18px;align-items:flex-start}
+    .challenge-item__num{font-family:'DM Serif Display',serif;font-size:22px;color:var(--pink);flex-shrink:0;line-height:1;margin-top:2px}
+    .challenge-item__title{font-size:13px;font-weight:500;color:var(--black);margin-bottom:6px}
+    .challenge-item__desc{font-size:12px;font-weight:300;color:var(--gray-3);line-height:1.65}
+    .validation-note{background:var(--off);border-radius:14px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;margin-top:16px}
+    .validation-note__icon{width:28px;height:28px;border-radius:50%;background:var(--pink);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+    .media-placeholder{background:var(--off);border:2px dashed var(--gray-2);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:40px 20px;margin-bottom:16px;text-align:center}
+    .media-placeholder__icon{font-size:28px;color:var(--gray-3)}
+    .media-placeholder__label{font-size:13px;font-weight:500;color:var(--gray-3)}
+    .media-placeholder__sub{font-size:11px;font-weight:300;color:var(--gray-3)}
+    .product-link{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+    .product-link a{font-size:13px;font-weight:400;color:var(--gray-4);text-decoration:underline;text-underline-offset:3px}
+    @media(max-width:768px){.case-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 120px;
+    }.case-hero {
+      background: var(--off);
+      color: var(--black);
+      padding: 80px 0 64px;
+    }.case-hero__meta{flex-direction:column;gap:20px}.case-hero__meta-item{border-right:none;padding-right:0;margin-right:0;border-bottom:1px solid var(--gray-2);padding-bottom:20px}.case-hero__meta-item:last-child{border-bottom:none;padding-bottom:0}.role-grid{grid-template-columns:1fr}.stat-row{grid-template-columns:1fr 1fr}.impact-grid{grid-template-columns:1fr}.case-impact{padding:32px 24px;border-radius:16px}}
+    @media(max-width:480px){.stat-row{grid-template-columns:1fr}}
+
+    /* ── CASE NAV ── */
+    .case-nav {
+      border-top: 1px solid var(--gray-1);
+      background: var(--white);
+      padding: 32px 0;
+    }
+    .case-nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+    }
+    .case-nav__item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .case-nav__item--prev { align-items: flex-start; }
+    .case-nav__item--next { align-items: flex-end; }
+    .case-nav__item--disabled { pointer-events: none; opacity: .25; }
+    .case-nav__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+    .case-nav__title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      transition: color .2s;
+    }
+    .case-nav__item:hover .case-nav__title { color: var(--pink); }
+    .case-nav__home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .case-nav__home-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--gray-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-3);
+      transition: border-color .2s, color .2s;
+    }
+    .case-nav__home:hover .case-nav__home-icon {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+    .case-nav__home-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+    @media (max-width: 600px) {
+      .case-nav__inner { padding: 0 24px; gap: 12px; }
+      .case-nav__title { font-size: 12px; }
+    }
+
+  </style>
+</head>
+<body class="case-page">
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav__inner">
+      <span class="nav__greeting">Boas vindas ao meu portfólio</span>
+      <div class="nav__right">
+        <ul class="nav__links">
+          <li><a href="index.html#projects">Projetos</a></li>
+          <li><a href="index.html#about">Sobre mim</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <div class="nav__icons">
+          <a href="https://www.linkedin.com/in/joyromone/" target="_blank" class="nav__icon-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank" class="nav__icon-link" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        </div>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+        <div class="nav__lang" id="langToggle">
+          <span class="nav__lang-current"><svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#fedf00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg><span>PT</span></span>
+          <div class="nav__lang-dropdown" id="langDropdown">
+            <button class="nav__lang-option nav__lang-option--active" data-lang="pt"><svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#009c3b"/><polygon points="12,1.5 22,8 12,14.5 2,8" fill="#fedf00"/><circle cx="12" cy="8" r="3.8" fill="#002776"/></svg><span>PT</span></button>
+            <button class="nav__lang-option" data-lang="en"><svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#012169"/><rect x="10" y="0" width="4" height="16" fill="white"/><rect x="0" y="6" width="24" height="4" fill="white"/><rect x="11" y="0" width="2" height="16" fill="#C8102E"/><rect x="0" y="7" width="24" height="2" fill="#C8102E"/></svg><span>EN</span></button>
+            <button class="nav__lang-option" data-lang="es"><svg width="20" height="14" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="16" fill="#c60b1e"/><rect y="3.5" width="24" height="9" fill="#ffc400"/></svg><span>ES</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <nav class="mobile-menu__nav">
+        <a href="index.html#projects" class="mobile-menu__link" onclick="closeMobileMenu()">Projetos</a>
+        <a href="index.html#about" class="mobile-menu__link" onclick="closeMobileMenu()">Sobre mim</a>
+        <a href="contato.html" class="mobile-menu__link">Contato</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="case-hero">
+    <div class="container">
+      <a href="index.html" class="case-hero__back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar aos projetos
+      </a>
+      <div class="case-hero__tags">
+        <span class="case-hero__tag">Edtech</span>
+        <span class="case-hero__tag">B2B2C</span>
+        <span class="case-hero__tag case-hero__tag--pink">Escola Conquer · Grupo Boticário · 2022</span>
+      </div>
+      <h1 class="case-hero__title">Como capacitamos revendedores do Grupo Boticário para dominar as redes sociais</h1>
+      <p class="case-hero__summary">O Influenciadores da Beleza é um programa de capacitação exclusivo criado para ensinar revendedoras do Grupo Boticário a usar redes sociais como canal de vendas. O desafio não era só ensinar ferramentas. Era transformar a relação dessas pessoas com a própria presença digital.</p>
+      <div class="case-hero__meta">
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Realizado em</div><div class="case-hero__meta-value">Escola Conquer</div></div>
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Para</div><div class="case-hero__meta-value">Grupo Boticário</div></div>
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Atuação</div><div class="case-hero__meta-value">Product Designer</div></div>
+        <div class="case-hero__meta-item"><div class="case-hero__meta-label">Duração</div><div class="case-hero__meta-value">2022</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPO -->
+  <div class="case-body">
+
+    <!-- MEU PAPEL -->
+    <div class="case-section">
+      <span class="case-section__label">Meu papel</span>
+      <h2 class="case-section__title">Product Designer de ponta a ponta.</h2>
+      <p class="case-section__lead">Fui responsável pela experiência da plataforma: arquitetura da informação, fluxos de navegação, gamificação, testes com usuárias e acompanhamento das métricas após o lançamento. Trabalhei em colaboração próxima com times de produto, conteúdo e tecnologia.</p>
+      <div class="role-grid">
+        <div class="role-item"><span class="role-item__num">01</span><span class="role-item__text">Workshop de co-criação com stakeholders</span></div>
+        <div class="role-item"><span class="role-item__num">02</span><span class="role-item__text">Pesquisa com personas fornecidas pelo cliente</span></div>
+        <div class="role-item"><span class="role-item__num">03</span><span class="role-item__text">Análise de concorrentes</span></div>
+        <div class="role-item"><span class="role-item__num">04</span><span class="role-item__text">Rabiscoframes e fluxo da plataforma</span></div>
+        <div class="role-item"><span class="role-item__num">05</span><span class="role-item__text">Testes de usabilidade moderados (Maze)</span></div>
+        <div class="role-item"><span class="role-item__num">06</span><span class="role-item__text">Acompanhamento de métricas e satisfação</span></div>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- DESAFIO -->
+    <div class="case-section">
+      <span class="case-section__label">Desafio</span>
+      <h2 class="case-section__title">Milhares de revendedoras com potencial, mas sem ferramentas para o mundo digital.</h2>
+      <p class="case-section__lead">O Grupo Boticário tem uma das maiores redes de revendedores do Brasil. Com a aceleração do consumo digital, dominar as redes sociais deixou de ser diferencial para se tornar requisito. Mas a maioria das revendedoras não tinha familiaridade com criação de conteúdo, algoritmos ou estratégias de venda online.</p>
+      <div class="case-box">
+        <span class="case-box__label">Por que esse produto importava</span>
+        <div class="pain-item">Aumentar vendas de forma consistente e ampliar fontes de renda</div>
+        <div class="pain-item">Ganhar confiança para se tornarem influenciadoras da própria marca</div>
+        <div class="pain-item">Criar uma marca pessoal forte e autêntica nas redes sociais</div>
+        <div class="pain-item">Conquistar mais clientes por meio de estratégias digitais eficazes</div>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- PESQUISA E CO-CRIAÇÃO -->
+    <div class="case-section">
+      <span class="case-section__label">Pesquisa e co-criação</span>
+      <h2 class="case-section__title">Ouvir, alinhar e criar juntos antes de abrir o Figma.</h2>
+      <p class="case-section__lead">Organizei um workshop com stakeholders e trabalhei a análise de concorrentes para identificar os padrões que faziam plataformas de aprendizado engajarem de verdade.</p>
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Workshop de co-criação</div>
+            <div class="timeline__title">Crazy 8's com o time: 8 ideias em 8 minutos</div>
+            <p class="timeline__text">Começamos com alinhamento de visão e as perguntas certas. Cada participante desenhou 8 ideias em 8 minutos. As propostas variaram de "design inspirado em rede social" a "feed de conquistas em tempo real". Depois de votação por pontos, chegamos juntos às funcionalidades mais viáveis.</p>
+            <div class="tool-pills"><span class="tool-pill">Crazy 8's</span><span class="tool-pill">Dot voting</span><span class="tool-pill">Co-criação</span></div>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div><div class="timeline__line"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Análise de concorrentes</div>
+            <div class="timeline__title">Quatro padrões que se repetiam nas plataformas mais engajantes</div>
+            <p class="timeline__text">Mapeei o que as referências do mercado tinham em comum: prova social e comunidade ativa, visibilidade clara do progresso, conexão entre alunos e navegação com poucos cliques. Esses padrões guiaram as decisões de arquitetura e interface.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__spine"><div class="timeline__dot"></div></div>
+          <div class="timeline__content">
+            <div class="timeline__step">Lápis e papel</div>
+            <div class="timeline__title">Rabiscoframes para validar antes de prototipar</div>
+            <p class="timeline__text">Através dos rabiscoframes identificamos rapidamente se as funcionalidades estavam alinhadas aos objetivos do produto. Foram os primeiros filtros antes de qualquer pixel no Figma.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- SOLUÇÃO -->
+    <div class="case-section">
+      <span class="case-section__label">Solução</span>
+      <h2 class="case-section__title">Uma plataforma que ensinava fazendo. E celebrava cada conquista.</h2>
+      <p class="case-section__lead">A estrutura foi pensada para reduzir a barreira de entrada e aumentar a sensação de conquista a cada etapa. A gamificação não era enfeite: era o mecanismo principal de retenção.</p>
+      <div class="feature-item"><span class="feature-item__num">1</span><div><p class="feature-item__title">Trilhas de aprendizado por nível</p><p class="feature-item__desc">Teste de nivelamento direciona cada revendedora à trilha certa: básica, intermediária ou avançada. Conteúdo em módulos curtos que cabiam na rotina.</p></div></div>
+      <div class="feature-item"><span class="feature-item__num">2</span><div><p class="feature-item__title">Gamificação como motor de engajamento 🎮</p><p class="feature-item__desc">Conquistas, pontos e rankings transformavam cada módulo concluído numa celebração. Objetivo: transformar cada conquista em uma festa.</p></div></div>
+      <div class="feature-item"><span class="feature-item__num">3</span><div><p class="feature-item__title">Mobile first em toda a jornada</p><p class="feature-item__desc">Com a maioria do acesso pelo celular, cada tela foi projetada com hierarquia clara e ações fáceis de encontrar em telas pequenas.</p></div></div>
+      <div class="feature-item"><span class="feature-item__num">4</span><div><p class="feature-item__title">Comunidade e suporte dentro da plataforma</p><p class="feature-item__desc">Espaço para revendedoras interagirem entre si e ajuda contextual nos momentos de dúvida. Insight que surgiu direto dos testes de usabilidade.</p></div></div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- TESTES -->
+    <div class="case-section">
+      <span class="case-section__label">Testes de usabilidade</span>
+      <h2 class="case-section__title">Ver alguém usar o produto pela primeira vez é o mais honesto dos feedbacks.</h2>
+      <p class="case-section__lead">Realizei testes moderados e remotos com 6 participantes: ex-alunas da edição anterior, com diferentes níveis de familiaridade digital. Cada sessão durou cerca de 50 minutos.</p>
+      <div class="case-box">
+        <span class="case-box__label">O maior desafio identificado e a solução</span>
+        <p style="font-size:13px;font-weight:500;color:var(--black);margin-bottom:6px;">Problema: quiz em página única</p>
+        <p style="font-size:13px;font-weight:300;color:var(--gray-4);line-height:1.65;margin-bottom:16px;">Todas as perguntas de nivelamento na mesma tela. As usuárias não entendiam o scroll e travavam nessa etapa, atrasando o acesso às trilhas.</p>
+        <p style="font-size:13px;font-weight:500;color:var(--black);margin-bottom:6px;">Solução: uma pergunta por página</p>
+        <p style="font-size:13px;font-weight:300;color:var(--gray-4);line-height:1.65;">Reestruturei o quiz separando cada pergunta com contador visual de progresso. Fluxo mais fluido, sensação de avanço e menos abandono.</p>
+      </div>
+      <div class="case-quote"><p class="case-quote__text">"Achei super fácil e rapidamente cheguei no conteúdo que precisava."</p><span class="case-quote__author">Participante do teste de usabilidade</span></div>
+      <div class="case-quote"><p class="case-quote__text">"A plataforma é mais leve e mais fácil de usar. Se fizer uma leitura eu consigo realizar o passo a passo."</p><span class="case-quote__author">Participante do teste de usabilidade</span></div>
+      <div class="case-quote"><p class="case-quote__text">"A plataforma é bem intuitiva, não tem nada escondido, tá tudo ali na frente pra clicar."</p><span class="case-quote__author">Participante do teste de usabilidade</span></div>
+      <div class="tool-pills" style="margin-top:16px;"><span class="tool-pill">Maze</span><span class="tool-pill">Google Meet</span><span class="tool-pill">Teste moderado</span></div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- RETROSPECTIVA -->
+    <div class="case-section">
+      <span class="case-section__label">Retrospectiva</span>
+      <h2 class="case-section__title">O que fica depois que o projeto termina.</h2>
+      <p class="case-section__lead">Essa experiência na Escola Conquer foi uma das que mais me formaram como designer. Não só pelo que entreguei, mas pelo que aprendi sobre produto, pessoas e sobre mim mesma no processo.</p>
+      <div class="challenge-item"><span class="challenge-item__num">01</span><div><p class="challenge-item__title">Liderei dois produtos com impacto social real</p><p class="challenge-item__desc">Trabalhei de ponta a ponta, com autonomia e responsabilidade sobre as decisões de design. Cada entrega precisava equilibrar o que as pessoas precisavam com o que o negócio podia sustentar.</p></div></div>
+      <div class="challenge-item"><span class="challenge-item__num">02</span><div><p class="challenge-item__title">Co-criei com times multidisciplinares</p><p class="challenge-item__desc">Facilitei dinâmicas de co-criação e traduzi a voz das usuárias em decisões que o time inteiro entendia e defendia. Um dos momentos mais marcantes foi o projeto Empreendedoras da Beleza, que ampliou significativamente o número de pessoas beneficiadas.</p></div></div>
+      <div class="challenge-item"><span class="challenge-item__num">03</span><div><p class="challenge-item__title">Deixei um legado além dos projetos</p><p class="challenge-item__desc">Apoiei designers sem formação em UX a expandirem seus conhecimentos com mentorias e desafios práticos. Sair de um lugar deixando uma cultura mais forte de design estratégico foi, talvez, o resultado do qual me orgulho mais.</p></div></div>
+      <div style="margin-top:16px;padding:20px 24px;background:var(--off);border-radius:12px;border-left:3px solid var(--pink);">
+        <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:var(--black);line-height:1.7;">Ver o impacto real na vida das pessoas que usaram o que eu projetei foi o que confirmou que estou no lugar certo, fazendo o que faz sentido.</p>
+      </div>
+    </div>
+
+    <!-- IMPACTO -->
+    <div class="case-impact">
+      <span class="case-impact__label">★ Impacto</span>
+      <p class="case-impact__intro">Os resultados foram além das métricas. O programa mudou a relação de milhares de revendedoras com o digital.</p>
+      <div class="impact-grid">
+        <div class="impact-card"><div class="impact-card__label">Alcance</div><div class="impact-card__num">+60k</div><div class="impact-card__title">revendedores inscritos</div><div class="impact-card__sub">Plataforma consolidada como principal ferramenta de capacitação do Grupo Boticário</div></div>
+        <div class="impact-card"><div class="impact-card__label">Satisfação</div><div class="impact-card__num">9,95</div><div class="impact-card__title">nota em pesquisas de satisfação</div><div class="impact-card__sub">Gamificação e suporte integrado citados como principais diferenciais</div></div>
+        <div class="impact-card"><div class="impact-card__label">Impacto econômico</div><div class="impact-card__num">70%</div><div class="impact-card__title">tiveram aumento de renda</div><div class="impact-card__sub">Participantes relataram dobrar as vendas após dominar estratégias no Instagram</div></div>
+        <div class="impact-card"><div class="impact-card__label">Usabilidade</div><div class="impact-card__num">2min</div><div class="impact-card__title">para encontrar o que precisavam</div><div class="impact-card__sub">Navegação intuitiva validada mesmo por quem não tinha familiaridade com tecnologia</div></div>
+      </div>
+      <div class="impact-quote"><p class="impact-quote__text">"Antes tinha medo de postar, hoje sou referência no meu grupo!"</p><span class="impact-quote__author">Revendedora, sobre empoderamento digital</span></div>
+      <div class="impact-quote" style="border-left-color:rgba(255,255,255,.15)"><p class="impact-quote__text">"Encontrei tudo o que precisava em menos de 2 minutos!"</p><span class="impact-quote__author">Revendedora, sobre usabilidade da plataforma</span></div>
+      <div style="margin-top:16px;background:var(--off);border-radius:12px;padding:18px 20px;border:1px solid var(--gray-2);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);margin-bottom:8px;">Conheça o produto</div>
+        <div class="product-link">
+          <a href="https://influenciadoresdabelezagb.com.br/" target="_blank">influenciadoresdabelezagb.com.br ↗</a>
+          <a href="https://app.influenciadoresdabelezagb.com.br/login" target="_blank">app.influenciadoresdabelezagb.com.br ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="case-nav">
+    <div class="case-nav__inner">
+      <a href="case-cultbr.html" class="case-nav__item case-nav__item--prev">
+        <span class="case-nav__label">Anterior</span>
+        <span class="case-nav__title">← CultBR</span>
+      </a>
+      <a href="index.html" class="case-nav__home">
+        <span class="case-nav__home-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        <span class="case-nav__home-label">Início</span>
+      </a>
+      <a href="case-empreendedoras.html" class="case-nav__item case-nav__item--next">
+        <span class="case-nav__label">Próximo</span>
+        <span class="case-nav__title">Empreendedoras da Beleza →</span>
+      </a>
+    </div>
+  </nav>
+  <footer class="footer">
+    <span class="footer__copy">© 2026 Joyce Romone · feito por uma humana 🤍</span>
+    <div class="footer__links">
+      <a href="https://www.linkedin.com/in/joyromone/" target="_blank">LinkedIn</a>
+      <a href="https://api.whatsapp.com/send?phone=555582996967877" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
