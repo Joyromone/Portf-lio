@@ -559,6 +559,68 @@
       .case-nav__title { font-size: 12px; }
     }
 
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.5);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      z-index: 1001;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,.3); }
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      z-index: 1001;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,.3); }
+    .lightbox-nav--prev { left: 20px; }
+    .lightbox-nav--next { right: 20px; }
+    .case-marquee__group img { cursor: zoom-in; }
   </style>
 </head>
 <body class="case-page">
@@ -749,7 +811,7 @@
         <span class="case-box__label">Como o fluxo legado funcionava na prática</span>
         <div class="flow-step">
           <div class="flow-step__spine"><div class="flow-step__dot"></div><div class="flow-step__line"></div></div>
-          <div><div class="flow-step__label">Passo 1</div><p class="flow-step__title">Criar o lote com o maior valor</p><p class="flow-step__desc">O organizador cadastrava o ingresso de valor cheio como base — R$ 500,00 — para tudo que viesse depois.</p></div>
+          <div><div class="flow-step__label">Passo 1</div><p class="flow-step__title">Criar o lote com o maior valor</p><p class="flow-step__desc">O organizador cadastrava o ingresso de valor cheio como base (R$ 500,00) para tudo que viesse depois.</p></div>
         </div>
         <div class="flow-step">
           <div class="flow-step__spine"><div class="flow-step__dot"></div><div class="flow-step__line"></div></div>
@@ -757,7 +819,7 @@
         </div>
         <div class="flow-step">
           <div class="flow-step__spine"><div class="flow-step__dot"></div><div class="flow-step__line"></div></div>
-          <div><div class="flow-step__label">Passo 3</div><p class="flow-step__title">Controle de vagas por formulário</p><p class="flow-step__desc">Vagas para staff, voluntários ou grupos internos não tinham como ser ocultadas. Os organizadores duplicavam o evento inteiro ou cadastravam essas vagas por caminhos alternativos — gambiarra que gerava inconsistência nos dados e retrabalho constante.</p></div>
+          <div><div class="flow-step__label">Passo 3</div><p class="flow-step__title">Controle de vagas por formulário</p><p class="flow-step__desc">Vagas para staff, voluntários ou grupos internos não tinham como ser ocultadas. Os organizadores duplicavam o evento inteiro ou cadastravam essas vagas por caminhos alternativos, gerando inconsistência nos dados e retrabalho constante.</p></div>
         </div>
         <div class="flow-step" style="padding-bottom:0;">
           <div class="flow-step__spine"><div class="flow-step__dot flow-step__dot--pink"></div></div>
@@ -832,6 +894,82 @@
             <span class="tool-pill">Tactiq</span>
             <span class="tool-pill">ClickUp</span>
             <span class="tool-pill">Testes de usabilidade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- MARQUEE PROTÓTIPOS — Meus Eventos -->
+    <div class="case-marquee-wrap" style="margin-top:64px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;">Fluxo · Meus Eventos</div>
+      <p style="font-size:13px;font-weight:300;color:var(--gray-3);margin-bottom:20px;">Tela inicial de criação de eventos: novo fluxo em protótipo e a plataforma anterior</p>
+      <div class="case-marquee__track">
+        <div class="case-marquee__inner">
+          <div class="case-marquee__group">
+            <img src="images/einscricao-proto-03-legado.avif" alt="Meus Eventos legado" onclick="openLightbox(0)" />
+            <img src="images/einscricao-proto-01.avif" alt="Meus Eventos empty state" onclick="openLightbox(1)" />
+            <img src="images/einscricao-proto-04.avif" alt="Meus Eventos novo fluxo" onclick="openLightbox(2)" />
+            <img src="images/einscricao-proto-02.avif" alt="Encontrar evento pelo nome" onclick="openLightbox(3)" />
+          </div>
+          <div class="case-marquee__group" aria-hidden="true">
+            <img src="images/einscricao-proto-03-legado.avif" alt="" />
+            <img src="images/einscricao-proto-01.avif" alt="" />
+            <img src="images/einscricao-proto-04.avif" alt="" />
+            <img src="images/einscricao-proto-02.avif" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARQUEE PROTÓTIPOS — Página do Evento -->
+    <div class="case-marquee-wrap" style="margin-top:48px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;">Fluxo · Página do Evento</div>
+      <p style="font-size:13px;font-weight:300;color:var(--gray-3);margin-bottom:20px;">Configuração da página pública do evento: capa, localização e validações</p>
+      <div class="case-marquee__track">
+        <div class="case-marquee__inner">
+          <div class="case-marquee__group">
+            <img src="images/einscricao-proto-05.avif" alt="Página do evento" onclick="openLightbox2(0)" />
+            <img src="images/einscricao-proto-06.avif" alt="Recortar capa do evento" onclick="openLightbox2(1)" />
+            <img src="images/einscricao-proto-07.avif" alt="Erro ao enviar imagem de capa" onclick="openLightbox2(2)" />
+            <img src="images/einscricao-proto-08.avif" alt="Local do evento" onclick="openLightbox2(3)" />
+            <img src="images/einscricao-proto-09.avif" alt="Definição de capa" onclick="openLightbox2(4)" />
+          </div>
+          <div class="case-marquee__group" aria-hidden="true">
+            <img src="images/einscricao-proto-05.avif" alt="" />
+            <img src="images/einscricao-proto-06.avif" alt="" />
+            <img src="images/einscricao-proto-07.avif" alt="" />
+            <img src="images/einscricao-proto-08.avif" alt="" />
+            <img src="images/einscricao-proto-09.avif" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARQUEE PROTÓTIPOS — Tipos de Inscrição -->
+    <div class="case-marquee-wrap" style="margin-top:48px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;">Fluxo · Tipos de Inscrição</div>
+      <p style="font-size:13px;font-weight:300;color:var(--gray-3);margin-bottom:20px;">O fluxo mais importante do projeto: criação de tipos de inscrição nativos, lotes e setores</p>
+      <div class="case-marquee__track">
+        <div class="case-marquee__inner">
+          <div class="case-marquee__group">
+            <img src="images/einscricao-proto-15.avif" alt="Empty state tipos de inscrição" onclick="openLightbox3(0)" />
+            <img src="images/einscricao-proto-10.avif" alt="Tipos de inscrição" onclick="openLightbox3(1)" />
+            <img src="images/einscricao-proto-16.avif" alt="Lotes" onclick="openLightbox3(2)" />
+            <img src="images/einscricao-proto-14.avif" alt="2º Lote" onclick="openLightbox3(3)" />
+            <img src="images/einscricao-proto-11.avif" alt="Lotes criados" onclick="openLightbox3(4)" />
+            <img src="images/einscricao-proto-12.avif" alt="Setor" onclick="openLightbox3(5)" />
+            <img src="images/einscricao-proto-13.avif" alt="Enviar convites" onclick="openLightbox3(6)" />
+          </div>
+          <div class="case-marquee__group" aria-hidden="true">
+            <img src="images/einscricao-proto-15.avif" alt="" />
+            <img src="images/einscricao-proto-10.avif" alt="" />
+            <img src="images/einscricao-proto-16.avif" alt="" />
+            <img src="images/einscricao-proto-14.avif" alt="" />
+            <img src="images/einscricao-proto-11.avif" alt="" />
+            <img src="images/einscricao-proto-12.avif" alt="" />
+            <img src="images/einscricao-proto-13.avif" alt="" />
           </div>
         </div>
       </div>
@@ -924,5 +1062,150 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightboxBtn()" aria-label="Fechar">✕</button>
+    <button class="lightbox-nav lightbox-nav--prev" onclick="lightboxNav(-1, event)" aria-label="Anterior">&#8592;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <button class="lightbox-nav lightbox-nav--next" onclick="lightboxNav(1, event)" aria-label="Próximo">&#8594;</button>
+  </div>
+  <script>
+    const lightboxImages = [
+      { src: 'images/einscricao-proto-03-legado.avif', alt: 'Meus Eventos legado' },
+      { src: 'images/einscricao-proto-01.avif', alt: 'Meus Eventos empty state' },
+      { src: 'images/einscricao-proto-04.avif', alt: 'Meus Eventos novo fluxo' },
+      { src: 'images/einscricao-proto-02.avif', alt: 'Encontrar evento pelo nome' },
+    ];
+    let lightboxIdx = 0;
+
+    function openLightbox(idx) {
+      lightboxIdx = idx;
+      const img = document.getElementById('lightboxImg');
+      img.src = lightboxImages[lightboxIdx].src;
+      img.alt = lightboxImages[lightboxIdx].alt;
+      document.getElementById('lightboxOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('lightboxOverlay')) {
+        closeLightboxBtn();
+      }
+    }
+    function closeLightboxBtn() {
+      document.getElementById('lightboxOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function lightboxNav(dir, e) {
+      e.stopPropagation();
+      lightboxIdx = (lightboxIdx + dir + lightboxImages.length) % lightboxImages.length;
+      const img = document.getElementById('lightboxImg');
+      img.src = lightboxImages[lightboxIdx].src;
+      img.alt = lightboxImages[lightboxIdx].alt;
+    }
+    document.addEventListener('keydown', e => {
+      const overlay = document.getElementById('lightboxOverlay');
+      if (!overlay.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightboxBtn();
+      if (e.key === 'ArrowRight') lightboxNav(1, { stopPropagation: () => {} });
+      if (e.key === 'ArrowLeft') lightboxNav(-1, { stopPropagation: () => {} });
+    });
+  </script>
+  <!-- LIGHTBOX 2 — Página do Evento -->
+  <div class="lightbox-overlay" id="lightboxOverlay2" onclick="closeLightbox2(event)">
+    <button class="lightbox-close" onclick="closeLightboxBtn2()" aria-label="Fechar">✕</button>
+    <button class="lightbox-nav lightbox-nav--prev" onclick="lightboxNav2(-1, event)" aria-label="Anterior">&#8592;</button>
+    <img class="lightbox-img" id="lightboxImg2" src="" alt="" />
+    <button class="lightbox-nav lightbox-nav--next" onclick="lightboxNav2(1, event)" aria-label="Próximo">&#8594;</button>
+  </div>
+  <script>
+    const lightboxImages2 = [
+      { src: 'images/einscricao-proto-05.avif', alt: 'Página do evento' },
+      { src: 'images/einscricao-proto-06.avif', alt: 'Recortar capa do evento' },
+      { src: 'images/einscricao-proto-07.avif', alt: 'Erro ao enviar imagem de capa' },
+      { src: 'images/einscricao-proto-08.avif', alt: 'Local do evento' },
+      { src: 'images/einscricao-proto-09.avif', alt: 'Definição de capa' },
+    ];
+    let lightboxIdx2 = 0;
+
+    function openLightbox2(idx) {
+      lightboxIdx2 = idx;
+      const img = document.getElementById('lightboxImg2');
+      img.src = lightboxImages2[lightboxIdx2].src;
+      img.alt = lightboxImages2[lightboxIdx2].alt;
+      document.getElementById('lightboxOverlay2').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox2(e) {
+      if (e.target === document.getElementById('lightboxOverlay2')) closeLightboxBtn2();
+    }
+    function closeLightboxBtn2() {
+      document.getElementById('lightboxOverlay2').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function lightboxNav2(dir, e) {
+      e.stopPropagation();
+      lightboxIdx2 = (lightboxIdx2 + dir + lightboxImages2.length) % lightboxImages2.length;
+      const img = document.getElementById('lightboxImg2');
+      img.src = lightboxImages2[lightboxIdx2].src;
+      img.alt = lightboxImages2[lightboxIdx2].alt;
+    }
+    document.addEventListener('keydown', e => {
+      const overlay2 = document.getElementById('lightboxOverlay2');
+      if (!overlay2.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightboxBtn2();
+      if (e.key === 'ArrowRight') lightboxNav2(1, { stopPropagation: () => {} });
+      if (e.key === 'ArrowLeft') lightboxNav2(-1, { stopPropagation: () => {} });
+    });
+  </script>
+  <!-- LIGHTBOX 3 — Tipos de Inscrição -->
+  <div class="lightbox-overlay" id="lightboxOverlay3" onclick="closeLightbox3(event)">
+    <button class="lightbox-close" onclick="closeLightboxBtn3()" aria-label="Fechar">✕</button>
+    <button class="lightbox-nav lightbox-nav--prev" onclick="lightboxNav3(-1, event)" aria-label="Anterior">&#8592;</button>
+    <img class="lightbox-img" id="lightboxImg3" src="" alt="" />
+    <button class="lightbox-nav lightbox-nav--next" onclick="lightboxNav3(1, event)" aria-label="Próximo">&#8594;</button>
+  </div>
+  <script>
+    const lightboxImages3 = [
+      { src: 'images/einscricao-proto-15.avif', alt: 'Empty state tipos de inscrição' },
+      { src: 'images/einscricao-proto-10.avif', alt: 'Tipos de inscrição' },
+      { src: 'images/einscricao-proto-16.avif', alt: 'Lotes' },
+      { src: 'images/einscricao-proto-14.avif', alt: '2º Lote' },
+      { src: 'images/einscricao-proto-11.avif', alt: 'Lotes criados' },
+      { src: 'images/einscricao-proto-12.avif', alt: 'Setor' },
+      { src: 'images/einscricao-proto-13.avif', alt: 'Enviar convites' },
+    ];
+    let lightboxIdx3 = 0;
+
+    function openLightbox3(idx) {
+      lightboxIdx3 = idx;
+      const img = document.getElementById('lightboxImg3');
+      img.src = lightboxImages3[lightboxIdx3].src;
+      img.alt = lightboxImages3[lightboxIdx3].alt;
+      document.getElementById('lightboxOverlay3').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox3(e) {
+      if (e.target === document.getElementById('lightboxOverlay3')) closeLightboxBtn3();
+    }
+    function closeLightboxBtn3() {
+      document.getElementById('lightboxOverlay3').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function lightboxNav3(dir, e) {
+      e.stopPropagation();
+      lightboxIdx3 = (lightboxIdx3 + dir + lightboxImages3.length) % lightboxImages3.length;
+      const img = document.getElementById('lightboxImg3');
+      img.src = lightboxImages3[lightboxIdx3].src;
+      img.alt = lightboxImages3[lightboxIdx3].alt;
+    }
+    document.addEventListener('keydown', e => {
+      const overlay3 = document.getElementById('lightboxOverlay3');
+      if (!overlay3.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightboxBtn3();
+      if (e.key === 'ArrowRight') lightboxNav3(1, { stopPropagation: () => {} });
+      if (e.key === 'ArrowLeft') lightboxNav3(-1, { stopPropagation: () => {} });
+    });
+  </script>
 </body>
 </html>
